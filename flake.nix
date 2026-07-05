@@ -17,6 +17,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -37,13 +42,13 @@
       flake =
         let
           overlays = import ./overlays;
-          #builders = import ./lib/builders.nix { inherit inputs overlays; };
+          builders = import ./lib/builders.nix { inherit inputs overlays; };
         in
         {
           overlays.default = overlays;
 
           #nixosConfigurations = builders.mkNixos { };
-          #homeConfigurations = builders.mkHome { };
+          homeConfigurations = builders.mkHome { };
         };
     };
 }
