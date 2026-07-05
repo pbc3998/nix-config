@@ -20,24 +20,30 @@
   };
 
   outputs =
-    inputs@{ self, nixpkgs, flake-parts, ... }:
+    inputs@{
+      self,
+      nixpkgs,
+      flake-parts,
+      ...
+    }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
       perSystem = { config, pkgs, ... }: {
-#        packages = ./packages { inherit pkgs; };
-#        devShells.default = import ./lib/devshell.nix { inherit pkgs; };
+        #        packages = ./packages { inherit pkgs; };
+        #        devShells.default = import ./lib/devshell.nix { inherit pkgs; };
       };
 
       flake =
         let
-#          overlays = import ./overlays;
-#          builders = import ./lib/builders.nix { inherit inputs overlays; };
-        in {
-#          overlays.default = overlays;
+          #          overlays = import ./overlays;
+          #          builders = import ./lib/builders.nix { inherit inputs overlays; };
+        in
+        {
+          #          overlays.default = overlays;
 
-#          nixosConfigurations = builders.mkNixos { };
-#          homeConfigurations = builders.mkHome { };
+          #          nixosConfigurations = builders.mkNixos { };
+          #          homeConfigurations = builders.mkHome { };
         };
     };
 }
