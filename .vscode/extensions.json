@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "jnoortheen.nix-ide",
+        "brettm12345.nixfmt-vscode"
+    ],
+    "unwantedRecommendations": []
+}

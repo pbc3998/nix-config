@@ -29,7 +29,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      perSystem = { config, pkgs, ... }: {
+      perSystem = { pkgs, ... }: {
         #        packages = ./packages { inherit pkgs; };
         devShells.default = import ./lib/devshell.nix { inherit pkgs; };
       };
