@@ -36,14 +36,14 @@
 
       flake =
         let
-          #          overlays = import ./overlays;
-          #          builders = import ./lib/builders.nix { inherit inputs overlays; };
+          overlays = import ./overlays;
+          #builders = import ./lib/builders.nix { inherit inputs overlays; };
         in
         {
-          #          overlays.default = overlays;
+          overlays.default = overlays;
 
-          #          nixosConfigurations = builders.mkNixos { };
-          #          homeConfigurations = builders.mkHome { };
+          #nixosConfigurations = builders.mkNixos { };
+          #homeConfigurations = builders.mkHome { };
         };
     };
 }
