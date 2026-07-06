@@ -4,5 +4,6 @@
     ./gh
     ./zsh
     ./kitty
+    ./nix-helper
   ];
 }
