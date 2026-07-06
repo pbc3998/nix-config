@@ -39,6 +39,8 @@
       systems = [ "x86_64-linux" ];
 
       perSystem = { pkgs, ... }: {
+        formatter = pkgs.nixpkgs-fmt-tree;
+
         packages = import ./packages { inherit pkgs; };
         devShells.default = import ./lib/devshell.nix { inherit pkgs; };
       };

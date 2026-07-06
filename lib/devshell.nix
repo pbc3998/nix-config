@@ -1,6 +1,6 @@
 { pkgs }:
 pkgs.mkShell {
-  formatter = pkgs.nixfmt-rfc-style;
+  formatter = pkgs.nixfmt-tree;
   nativeBuildInputs = [
     pkgs.nixd
     pkgs.nixfmt-rfc-style
