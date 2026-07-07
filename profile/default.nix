@@ -2,8 +2,8 @@ rec {
   name = "PBCDev";
   userName = "pbcdev";
 
-  dirHome = "/home/${userName}";
-  dirConfig = "${dirHome}/nix-config";
+  homeDir = "/home/${userName}";
+  nixConfigDir = "${homeDir}/nix-config";
 
   email = import ./email.nix;
   defaultTools = import ./tools.nix;

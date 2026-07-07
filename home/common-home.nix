@@ -1,7 +1,7 @@
 { profile, inputs, ... }:
 {
   home.username = profile.username;
-  home.homeDirectory = profile.dirHome;
+  home.homeDirectory = profile.homeDir;
   home.stateVersion = "26.05";
 
   imports = [

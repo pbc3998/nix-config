@@ -7,7 +7,7 @@
       "networkmanager"
     ];
     shell = pkgs.zsh;
-    home = profile.dirHome;
+    home = profile.homeDir;
     hashedPassword = profile.hashedPassword;
   };
 }
