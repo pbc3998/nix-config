@@ -6,6 +6,7 @@ pkgs.mkShell {
     pkgs.nixfmt-rfc-style
     # pkgs.nh
     # pkgs.home-manager
+    pkgs.uv
   ];
   shellHook = "";
 }

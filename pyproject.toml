@@ -1,0 +1,7 @@
+[project]
+name = "nix-config"
+version = "0.1.0"
+description = "Nix-Config"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
