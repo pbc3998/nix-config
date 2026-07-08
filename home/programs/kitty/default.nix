@@ -1,7 +1,6 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Dracula";
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 11;
