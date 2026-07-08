@@ -6,5 +6,10 @@
     "editor.defaultFormatter": "jnoortheen.nix-ide",
     "editor.formatOnSave": true
   },
-  "nixEnvSelector.suggestion": false
+  "nixEnvSelector.suggestion": false,
+
+  "files.associations": {
+    "flake.lock": "json",
+    "LICENSE": "plaintext"
+  }
 }
