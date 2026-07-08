@@ -9,6 +9,9 @@ rec {
     sub = "baochaupham3205@gmail.com";
   };
 
+  timeZone = "Asia/Ho_Chi_Minh";
+  locale = "en_US.UTF-8";
+
   homeDir = "/home/${userName}";
   nixConfigDir = "${homeDir}/nix-config";
 
