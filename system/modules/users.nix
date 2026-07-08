@@ -6,7 +6,7 @@
       "wheel"
       "networkmanager"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs."${profile.defaultTools.shell}";
     home = profile.homeDir;
     hashedPassword = profile.hashedPassword;
   };
