@@ -1,3 +1,5 @@
+[outdated]
+
 # Architecture of nix-config
 
 ## structure on fs
