@@ -2,6 +2,7 @@
   inputs,
   overlays,
   extraModules,
+  embed ? false # This flag is only used when embedding home-manager into nixos instead of using it as a standalone unit.
 }:
 let
   desktopsDir = "${inputs.self}/home/desktops";
@@ -33,5 +34,13 @@ let
       inherit desktop;
     });
   };
+  # Used for Home Manager on NixoS
+  mk-x86_64-linux-for-nixos = desktop: {
+    ${desktop} = mkHome { inherit desktop; };
+  };
 in
-inputs.nixpkgs.lib.mergeAttrsList (map mk-x86_64-linux desktops)
+inputs.nixpkgs.lib.mergeAttrsList (
+  if ! embed
+  then map mk-x86_64-linux desktops
+  else map mk-x86_64-linux-for-nixos desktops
+)

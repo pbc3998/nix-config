@@ -72,7 +72,10 @@
           overlays.default = overlays;
 
           nixosConfigurations = lib.builders.mkNixos {
-            extraModules = [ inputs.lanzaboote.nixosModules.lanzaboote ];
+            extraModules = [
+              inputs.lanzaboote.nixosModules.lanzaboote
+              inputs.home-manager.nixosModules.home-manager
+            ];
           };
 
           homeConfigurations = lib.builders.mkHome {

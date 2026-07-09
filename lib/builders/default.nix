@@ -22,4 +22,16 @@
       overlays = overlays';
       inherit extraModules;
     };
+
+  mkHm =
+    {
+      inputs' ? inputs,
+      overlays' ? overlays,
+      extraModules ? [ ],
+    }:
+    import ./mkHm.nix {
+      inputs = inputs';
+      overlays = overlays';
+      inherit extraModules;
+    };
 }
