@@ -1,4 +1,4 @@
-{ inputs, overlays }:
+{ inputs, overlays, extraModules }:
 let
   hosts-x86_64-linux = [ "dp7530" ];
 
@@ -22,7 +22,7 @@ let
         profile = import "${inputs.self}/profile";
       };
 
-      modules = modules' ++ [
+      modules = modules' ++ extraModules ++ [
         "${hostsDir}/${host}"
         {
           networking.hostName = "nixos-${host}";

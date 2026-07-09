@@ -28,6 +28,11 @@
     niri.url = "github:sodiboo/niri-flake";
 
     cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -53,7 +58,10 @@
         {
           overlays.default = overlays;
 
-          nixosConfigurations = lib.builders.mkNixos { };
+          nixosConfigurations = lib.builders.mkNixos {
+            extraModules = [ inputs.lanzaboote.nixosModules.lanzaboote ];
+          };
+
           homeConfigurations = lib.builders.mkHome { };
         };
     };

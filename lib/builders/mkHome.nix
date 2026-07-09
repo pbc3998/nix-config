@@ -1,4 +1,4 @@
-{ inputs, overlays }:
+{ inputs, overlays, extraModules }:
 let
   desktopsDir = "${inputs.self}/home/desktops";
   desktops = [ "tty" ];
@@ -19,7 +19,7 @@ let
         inherit inputs;
         profile = import "${inputs.self}/profile";
       };
-      modules = modules' ++ [ "${desktopsDir}/${desktop}" ];
+      modules = modules' ++ [ "${desktopsDir}/${desktop}" ] ++ extraModules;
     };
 
   # For convenience, we will not add the suffix to the x86_64-linux platform.
