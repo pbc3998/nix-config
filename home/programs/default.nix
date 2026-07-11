@@ -1,11 +1,13 @@
 {
-  programs.home-manager.enable = true;
-
   imports = [
-    ./git
+    # ./firefox
     ./gh
-    ./zsh
+    ./git
+    ./home-manager
     ./kitty
     ./nix-helper
+    # ./nvim
+    # ./vscode
+    ./zsh
   ];
 }
