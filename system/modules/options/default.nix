@@ -1,3 +1,6 @@
 {
-  imports = [ ./host-config.nix ];
+  imports = [
+    ./host-config.nix
+    ./libs-list.nix
+  ];
 }
