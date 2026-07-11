@@ -17,6 +17,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-26.05";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
 
     # system
 
@@ -55,9 +56,18 @@
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
+      imports = [
+        inputs.treefmt-nix.flakeModule
+      ];
 
       perSystem = { pkgs, ... }: {
-        formatter = pkgs.nixpkgs-fmt-tree;
+        treefmt.config = {
+          projectRootFile = "flake.nix";
+          programs = {
+            nixpkgs-fmt.enable = true;
+            prettier.enable = true;
+          };
+        };
 
         packages = import ./packages { inherit pkgs; };
         devShells.default = import ./modules/devshell.nix { inherit pkgs; };
@@ -86,7 +96,8 @@
                   embed = true;
                 };
               }
-            ] ++ extraModulesNixos;
+            ]
+            ++ extraModulesNixos;
           };
 
           homeConfigurations = libx.builders.mkHome { extraModules = extraModulesHome; };
