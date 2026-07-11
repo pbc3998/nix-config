@@ -26,7 +26,7 @@ let
   # ==================== Nixos ====================
 
   nixosModules = [
-    "${rootDir}/system/common-configuration.nix"
+    "${rootDir}/system/base.nix"
     # "${rootDir}/system/virtualisation.nix"
   ];
 
@@ -78,7 +78,7 @@ let
   # ==================== Home-Manager ====================
 
   homeModules = [
-    "${rootDir}/home/common-home.nix"
+    "${rootDir}/home/base.nix"
   ];
 
   homeSpecialArgs = { inherit inputs profile libx; };
