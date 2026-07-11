@@ -35,11 +35,11 @@ let
   };
 
   mkNixos-base =
-    {
-      system ? "x86_64-linux",
-      host,
-      desktop,
-      extraModules,
+    { system ? "x86_64-linux"
+    , host
+    , desktop
+    , extraModules
+    ,
     }:
     let
       mk = {
@@ -87,10 +87,10 @@ let
     { desktop, extraModules }: homeModules ++ extraModules ++ [ "${desktopsDir}/${desktop}" ];
 
   mkHome-base =
-    {
-      desktop,
-      system ? "x86_64-linux",
-      extraModules,
+    { desktop
+    , system ? "x86_64-linux"
+    , extraModules
+    ,
     }:
     let
       mk = {
@@ -109,37 +109,40 @@ let
 in
 {
   mkNixos =
-    {
-      extraModules ? [ ],
+    { extraModules ? [ ]
+    ,
     }:
     nixpkgs.lib.mergeAttrsList (
-      nixpkgs.lib.concatMap (
-        system:
-        map
-          (
-            { host, desktop }:
-            mkNixos-base {
-              inherit
-                system
-                host
-                desktop
-                extraModules
-                ;
-            }
-          )
-          (
-            nixpkgs.lib.cartesianProduct {
-              desktop = desktops;
-              host = hosts.${system};
-            }
-          )
-      ) systems
+      nixpkgs.lib.concatMap
+        (
+          system:
+          map
+            (
+              { host, desktop }:
+              mkNixos-base {
+                inherit
+                  system
+                  host
+                  desktop
+                  extraModules
+                  ;
+              }
+            )
+            (
+              nixpkgs.lib.cartesianProduct {
+                desktop = desktops;
+                host = hosts.${system};
+              }
+            )
+        )
+        systems
     );
 
   mkHome =
-    {
-      embed ? false, # By default, it will not be embedded in NixoS.
-      extraModules ? [ ],
+    { embed ? false
+    , # By default, it will not be embedded in NixoS.
+      extraModules ? [ ]
+    ,
     }:
     if embed then
       {
@@ -157,8 +160,10 @@ in
       }
     else
       nixpkgs.lib.mergeAttrsList (
-        nixpkgs.lib.concatMap (
-          system: map (desktop: mkHome-base { inherit system desktop extraModules; }) desktops
-        ) systems
+        nixpkgs.lib.concatMap
+          (
+            system: map (desktop: mkHome-base { inherit system desktop extraModules; }) desktops
+          )
+          systems
       );
 }

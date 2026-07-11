@@ -1,3 +1,3 @@
 {
-  ldLibraries = [];
+  ldLibraries = [ ];
 }

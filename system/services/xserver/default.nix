@@ -1,4 +1,4 @@
-{ config, ...}:
+{ config, ... }:
 {
   services.xserver = {
     enable = config.host-config.useDesktop;
