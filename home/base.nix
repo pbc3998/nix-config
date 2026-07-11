@@ -6,6 +6,7 @@
 
   imports = [
     "${inputs.self}/home/programs"
-    #"${inputs.self}/home/services"
+    "${inputs.self}/home/services"
+    "${inputs.self}/home/modules"
   ];
 }
