@@ -1,11 +1,11 @@
 { pkgs, ... }: {
   boot = {
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot.enable = false;
 
-    # TODO: Prepare the file containing the digital signature key for the machine to use with LanzaBoote.
     lanzaboote = {
-      enable = false;
+      enable = true;
+      pkiBundle = "/etc/secureboot";
     };
   };
 
