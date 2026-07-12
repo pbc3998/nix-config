@@ -21,7 +21,7 @@
       "workbench.colorTheme" = "Neofusion Theme";
       "workbench.iconTheme" = "material-icon-theme";
 
-      "files.autoSave" = "true";
+      "files.autoSave" = "afterDelay";
     };
   };
   };
