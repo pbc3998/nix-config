@@ -25,13 +25,7 @@
       "centered": false,
       "position": "absolute"
     },
-    "controls": [
-      "loop",
-      "speed-minus",
-      "speed",
-      "speed-plus",
-      "options"
-    ],
+    "controls": ["loop", "speed-minus", "speed", "speed-plus", "options"],
     "controlsvisible": true,
     "controlspeed": false,
     "controlspeedmousebutton": false,
