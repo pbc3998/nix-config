@@ -14,7 +14,7 @@
     packages = [
       "com.valvesoftware.Steam"
       "com.vivaldi.Vivaldi"
-      "flathub com.wps.Office"
+      "com.wps.Office"
     ];
   };
 
