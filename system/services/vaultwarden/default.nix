@@ -7,6 +7,9 @@
       ROCKET_PORT = 8222;
 
       DOMAIN = "https://bitwarden.localhost";
+
+      SIGNUPS_ALLOWED = false;
+      INVITATIONS_ALLOWED = false;
     };
   };
 
