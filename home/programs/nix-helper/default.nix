@@ -3,9 +3,9 @@
   programs.nh = {
     enable = true;
 
-    flake = "${profile.nixConfigDir}/flake.nix";
+    flake = "${profile.nixConfigDir}";
   };
   home.sessionVariables = {
-    NH_HOME_FLAKE = "${profile.nixConfigDir}/flake.nix";
+    NH_HOME_FLAKE = "${profile.nixConfigDir}";
   };
 }
