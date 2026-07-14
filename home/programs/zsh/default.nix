@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, settings, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -28,6 +28,8 @@
 
     shellAliases = {
       cd = "z";
+      cat = "bat";
+      less = settings.tools.pager;
     };
 
     dotDir = "${config.xdg.configHome}/zsh";

@@ -7,7 +7,7 @@
       editor = settings.tools.editor;
       prompt = "enabled";
       prefer_editor_prompt = "disabled";
-      pager = "cat";
+      pager = settings.tools.pager;
       browser = settings.tools.browser;
 
       color_labels = "disabled";

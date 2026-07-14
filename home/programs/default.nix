@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bat
     ./eza
     ./fastfetch
     ./firefox
