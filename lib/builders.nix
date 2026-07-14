@@ -106,23 +106,23 @@ in
     ,
     }:
     nixpkgs.lib.mergeAttrsList (
-          map
-            (
-              { host, desktop }:
-              mkNixos-base {
-                inherit
-                  host
-                  desktop
-                  extraModules
-                  ;
-              }
-            )
-            (
-              nixpkgs.lib.cartesianProduct {
-                desktop = desktops;
-                host = hosts;
-              }
-            )
+      map
+        (
+          { host, desktop }:
+          mkNixos-base {
+            inherit
+              host
+              desktop
+              extraModules
+              ;
+          }
+        )
+        (
+          nixpkgs.lib.cartesianProduct {
+            desktop = desktops;
+            host = hosts;
+          }
+        )
     );
 
   mkHome =
@@ -149,7 +149,7 @@ in
       nixpkgs.lib.mergeAttrsList (
         nixpkgs.lib.concatMap
           (
-                 hostPlatform: map (desktop: mkHome-base { inherit hostPlatform desktop extraModules; }) desktops
+            hostPlatform: map (desktop: mkHome-base { inherit hostPlatform desktop extraModules; }) desktops
           )
           hostPlatforms
       );
