@@ -7,7 +7,6 @@
     ./kanata
     ./NetworkManager
     ./nginx
-    ./nix-daemon
     # ./openssh
     ./pipewire
     ./sddm
