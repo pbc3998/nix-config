@@ -11,7 +11,7 @@
     ./home-manager
     ./kitty
     ./nix-helper
-    # ./nvim
+    ./nvim
     ./ripgrep
     ./starship
     ./vscode
