@@ -3,9 +3,9 @@
   programs.firefox = {
     enable = true;
     #package = pkgs.firefox-devedition;
-    profiles.${settings.userName} = {
+    profiles.${settings.profile.username} = {
       id = 0;
-      name = settings.userName;
+      name = settings.profile.username;
       isDefault = true;
       extensions = import ./extensions { inherit pkgs; };
 

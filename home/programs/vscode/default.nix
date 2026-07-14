@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    profiles.${settings.userName} = {
+    profiles.${settings.profile.username} = {
       extensions = with inputs.vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
         diegoulloao.neofusion-theme
         pkief.material-icon-theme

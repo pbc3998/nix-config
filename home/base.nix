@@ -1,7 +1,7 @@
 { settings, inputs, ... }:
 {
-  home.username = settings.userName;
-  home.homeDirectory = settings.homeDir;
+  home.username = settings.profile.username;
+  home.homeDirectory = settings.dirs.home;
   home.stateVersion = settings.stateVersion;
 
   imports = [

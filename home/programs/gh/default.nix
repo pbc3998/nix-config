@@ -4,11 +4,11 @@
     settings = {
       version = 1;
       git_protocol = "https";
-      editor = settings.defaultTools.editor;
+      editor = settings.tools.editor;
       prompt = "enabled";
       prefer_editor_prompt = "disabled";
       pager = "cat";
-      browser = settings.defaultTools.browser;
+      browser = settings.tools.browser;
 
       color_labels = "disabled";
       accessible_colors = "disabled";

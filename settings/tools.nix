@@ -1,5 +1,5 @@
 {
   shell = "zsh";
-  editor = "nvim";
-  browser = "vivaldi";
+  editor = "code";
+  browser = "firefox";
 }
