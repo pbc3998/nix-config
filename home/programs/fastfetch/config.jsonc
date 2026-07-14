@@ -3,7 +3,7 @@
         "type": "auto",
         "source": "~/.config/fastfetch/logo/nixos.webp",
         "height": 21,
-        "width": 40,
+        "width": 45,
         "padding": {
             "top": 2,
             "left": 3
@@ -42,7 +42,7 @@
             "color": {
                 "keys": ""
             },
-            "key": "{$4}                                        󱐋󱐋 Fastfetch ",
+            "key": "{$4}                                       󱐋󱐋 Fastfetch ",
             "format": "{$6}{2}"
         },
         {
