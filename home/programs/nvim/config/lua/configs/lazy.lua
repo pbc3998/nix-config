@@ -1,6 +1,7 @@
 return {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
+  lockfile = vim.fn.expand("~/nix-config/home/programs/nvim/lazy-lock.json"),
 
   ui = {
     icons = {
