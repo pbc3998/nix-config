@@ -3,18 +3,17 @@ let
   rootDir = inputs.self;
   inherit (inputs) nixpkgs;
 
-  hosts = {
-    x86_64-linux = [
-      "dp7530"
-    ];
-  };
+  hosts = [
+    "dp7530"
+  ];
 
   desktops = [
     "tty"
     "plasma6"
   ];
-  systems = [ "x86_64-linux" ];
-  systemPriority = "x86_64-linux";
+
+  hostPlatforms = [ "x86_64-linux" ];
+  hostPlatformPriority = "x86_64-linux";
 
   hostsDir = "${rootDir}/system/hosts";
   desktopsDir-nixos = "${rootDir}/system/desktops";
@@ -35,15 +34,13 @@ let
   };
 
   mkNixos-base =
-    { system ? "x86_64-linux"
-    , host
+    { host
     , desktop
     , extraModules
     ,
     }:
     let
       mk = {
-        # inherit system; # TODO: Handling deprecation warnings
         specialArgs = nixosSpecialArgs;
 
         modules = [
@@ -69,11 +66,7 @@ let
         ++ extraModules;
       };
     in
-    # If it's the preferred (primary) architecture, omit the operating system suffix for a shorter Host/Desktop name.
-    if (system == systemPriority) then
-      { "${host}-${desktop}" = nixpkgs.lib.nixosSystem mk; }
-    else
-      { "${host}-${desktop}-${system}" = nixpkgs.lib.nixosSystem mk; };
+    { "${host}-${desktop}" = nixpkgs.lib.nixosSystem mk; };
 
   # ==================== Home-Manager ====================
 
@@ -88,7 +81,7 @@ let
 
   mkHome-base =
     { desktop
-    , system ? "x86_64-linux"
+    , hostPlatform ? "x86_64-linux"
     , extraModules
     ,
     }:
@@ -96,16 +89,16 @@ let
       mk = {
         extraSpecialArgs = homeSpecialArgs;
         pkgs = import nixpkgs {
-          inherit overlays system;
+          inherit overlays hostPlatform;
           config.allowUnfree = true;
         };
         modules = (mkHomeModules { inherit desktop extraModules; });
       };
     in
-    if (system == systemPriority) then
+    if (hostPlatform == hostPlatformPriority) then
       { ${desktop} = inputs.home-manager.lib.homeManagerConfiguration mk; }
     else
-      { "${desktop}-${system}" = inputs.home-manager.lib.homeManagerConfiguration mk; };
+      { "${desktop}-${hostPlatform}" = inputs.home-manager.lib.homeManagerConfiguration mk; };
 in
 {
   mkNixos =
@@ -113,15 +106,11 @@ in
     ,
     }:
     nixpkgs.lib.mergeAttrsList (
-      nixpkgs.lib.concatMap
-        (
-          system:
           map
             (
               { host, desktop }:
               mkNixos-base {
                 inherit
-                  system
                   host
                   desktop
                   extraModules
@@ -131,11 +120,9 @@ in
             (
               nixpkgs.lib.cartesianProduct {
                 desktop = desktops;
-                host = hosts.${system};
+                host = hosts;
               }
             )
-        )
-        systems
     );
 
   mkHome =
@@ -162,8 +149,8 @@ in
       nixpkgs.lib.mergeAttrsList (
         nixpkgs.lib.concatMap
           (
-            system: map (desktop: mkHome-base { inherit system desktop extraModules; }) desktops
+                 hostPlatform: map (desktop: mkHome-base { inherit hostPlatform desktop extraModules; }) desktops
           )
-          systems
+          hostPlatforms
       );
 }
