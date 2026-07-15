@@ -1,7 +1,7 @@
 rec {
   shell = "zsh";
   editor = "code";
-  browser = "firefox";
+  browser = "vivaldi";
   pager = "bat --plain --pager='less -FR'";
 
   alias = {
