@@ -1,10 +1,10 @@
 {
   force = true;
-  default = "Google";
+  default = "google";
   order = [ ];
 
   engines = {
-    "Google" = {
+    "google" = {
       definedAliases = [ ":g" ];
 
       urls = [{
@@ -12,7 +12,7 @@
       }];
     };
 
-    "DuckDuckGo" = {
+    "duckduckgo" = {
       definedAliases = [ ":d" ];
 
       urls = [{
@@ -20,7 +20,7 @@
       }];
     };
 
-    "NuGet" = {
+    "nuget" = {
       definedAliases = [ ":ng" ];
 
       urls = [{
@@ -28,7 +28,7 @@
       }];
     };
 
-    "Nixpkgs" = {
+    "nixpkgs" = {
       definedAliases = [ ":np" ];
 
       urls = [{
@@ -36,7 +36,7 @@
       }];
     };
 
-    "NixOS" = {
+    "nixos" = {
       definedAliases = [ ":no" ];
 
       urls = [{
@@ -44,7 +44,7 @@
       }];
     };
 
-    "Home-Manager" = {
+    "home-manager" = {
       definedAliases = [ ":hm" ];
 
       urls = [{
@@ -52,7 +52,7 @@
       }];
     };
 
-    "Youtube" = {
+    "youtube" = {
       definedAliases = [ ":yt" ];
 
       urls = [{
@@ -60,7 +60,7 @@
       }];
     };
 
-    "Wikipedia" = {
+    "wikipedia" = {
       definedAliases = [ ":w" ];
 
       urls = [{
@@ -68,7 +68,7 @@
       }];
     };
 
-    "SoundCloud" = {
+    "soundcloud" = {
       definedAliases = [ ":sc" ];
 
       urls = [{
@@ -76,7 +76,7 @@
       }];
     };
 
-    "Github" = {
+    "github" = {
       definedAliases = [ ":gh" ];
 
       urls = [{
@@ -84,7 +84,7 @@
       }];
     };
 
-    "Gitlab" = {
+    "gitlab" = {
       definedAliases = [ ":gl" ];
 
       urls = [{
@@ -92,7 +92,7 @@
       }];
     };
 
-    "StackOverflow" = {
+    "stack-overflow" = {
       definedAliases = [ ":so" ];
 
       urls = [{
@@ -100,8 +100,8 @@
       }];
     };
 
-    "Amazon.com".metaData.hidden = true;
-    "Bing".metaData.hidden = true;
-    "eBay".metaData.hidden = true;
+    "amazondotcom-us".metaData.hidden = true;
+    "bing".metaData.hidden = true;
+    "ebay".metaData.hidden = true;
   };
 }
