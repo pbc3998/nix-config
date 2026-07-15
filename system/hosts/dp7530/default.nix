@@ -19,8 +19,5 @@
     ./hardware-configuration.nix
   ];
 
-  host-config = {
-    gpuDrivers = [ "intel" ];
-    useDesktop = true;
-  };
+  host-config.gpuDrivers = [ "intel" ];
 }

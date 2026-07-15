@@ -1,4 +1,3 @@
-{ config, ... }:
 {
-  services.desktopManager.plasma6.enable = config.host-config.useDesktop;
+  services.desktopManager.plasma6.enable = true;
 }

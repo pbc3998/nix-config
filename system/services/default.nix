@@ -13,6 +13,7 @@
     ./sddm
     ./systemd-resolved
     ./vaultwarden
+    ./wayland
     ./xserver
   ];
 }

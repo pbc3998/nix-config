@@ -1,7 +1,7 @@
 { config, ... }:
 {
   services.xserver = {
-    enable = config.host-config.useDesktop;
+    enable = true;
     videoDrivers = config.host-config.gpuDrivers;
   };
 }
