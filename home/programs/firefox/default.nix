@@ -11,6 +11,8 @@
 
       settings = import ./settings.nix;
       extraConfig = builtins.readFile ./user.js;
+
+      search = import ./search.nix;
     };
 
     policies = {
