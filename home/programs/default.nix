@@ -15,6 +15,7 @@
     ./nvim
     ./ripgrep
     ./starship
+    ./vivaldi
     ./vscode
     ./zoxide
     ./zsh
