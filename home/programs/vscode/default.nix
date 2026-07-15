@@ -12,6 +12,7 @@
         jnoortheen.nix-ide
         brettm12345.nixfmt-vscode
         editorconfig.editorconfig
+        vancoding.vscode-treefmt-nix
       ];
 
       userSettings = {
