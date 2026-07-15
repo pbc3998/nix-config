@@ -1,0 +1,185 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/firefox-gx */
+
+/* Menu padding \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+menupopup:not(.in-menulist) {
+    --panel-padding: 4px 0px !important;
+    
+    /* without '>' to affect too the context navigation buttons */
+    & :is(menuitem, menu) {
+        --menuitem-border-radius: 0px !important;
+        --menuitem-padding: 0.34em 1em !important;
+        /*appearance: none !important;/**/
+    }
+}
+
+/* Combo-box - Select Box more compact \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#ContentSelectDropdown > menupopup:not(.in-menulist) > menuitem {
+    padding: 0 6px !important;
+}
+
+/* Separator \
+¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+menupopup:not(.in-menulist)  menuseparator {
+    padding-inline: 6px !important;
+    
+    &::before {
+        appearance: none !important;
+        border-image: var(--panel-separator-zap-gradient2) 1 !important;
+
+        @media (-moz-platform: linux) {
+            margin-inline: 6px !important;
+        }
+    }
+}
+
+/* 'Menu inside menu' margin \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+menupopup menupopup {
+    appearance: none !important;
+    margin-block-start: -6px !important;
+    margin-inline-start: -8px !important;
+}
+
+/* General Styles \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+:is(menupopup:not(.in-menulist), panel):where(:not([type="arrow"])) {
+    --panel-box-shadow-margin: 1px !important;  /* 1px to draw the external contrast border */
+    --panel-border-radius: 4px !important;
+    --panel-box-shadow: 0 0 0 1px var(--my-scheme-color) !important;    /* Test in 'search engine' button */
+    --panel-text-color: inherit !important;
+}
+
+.menupopup-arrowscrollbox {
+    border-image: var(--my-border-image, none) !important;
+    background-image: var(--my-background-scroll, var(--my-background-image1, Field)) !important;
+    background-repeat: var(--my-background-repeat) !important;
+    background-size: var(--my-background-size) !important;
+    background-position: var(--my-background-position) !important;
+    background-color: var(--my-background-color, Field) !important;
+    border-color: var(--my-panel-border-color, var(--border-color)) !important;
+    box-shadow: var(--my-panel-box-shadow, var(--panel-box-shadow)) !important;
+}
+
+menupopup:not(.in-menulist) {
+    --panel-background-color: var(--arrowpanel-background) !important;
+    --my-background-image1:                                              /* Soft gradient background - needs to be 1 */
+        radial-gradient( 100% 90% at 50% 100%,
+        color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
+        var(--arrowpanel-background)) !important;
+    --my-background-repeat: no-repeat !important;
+    --my-background-size: auto auto !important;
+    --my-background-position: center center;
+    --my-background-color: var(--arrowpanel-background) !important;
+    --my-panel-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;       /* popup_border - internal */
+    --my-panel-box-shadow: 0 0 0 1px var(--my-scheme-color) !important;                                 /* popup border - external */
+    
+    @media (prefers-color-scheme: light) {
+        --my-panel-border-color: lch(from var(--panel-background-color) calc(l - 20) c h) !important;   /* popup_border - internal */
+        --my-scheme-color: var(--my-scheme-border-color) !important;                                    /* popup border - external */
+    }
+
+    /* Backgroud color to 'hover' items */
+    &> menu,
+    & menuitem {
+        &:where([_moz-menuactive]) {
+            &:not([disabled]) {
+                background: var(--panel-separator-zap-gradient3) !important;
+                color: contrast-color(var(--color-accent-primary-hover)) !important;
+            }
+            &:is([disabled]) {
+                background: linear-gradient(to right, color-mix(in srgb, gray 20%, transparent), transparent) !important;
+            }
+            
+            /* Arrow fill color - test it in swamp theme */
+            &:after {
+                color: var(--panel-text-color) !important;
+            }
+        }
+    }
+    
+    /* Smooth colored border */
+    @media not -moz-pref("firefoxgx.gradientBorder-in-menus") {
+        &::after {
+            --my-arrowpanel-gradient: radial-gradient(ellipse at center, var(--color-accent-primary-hover), transparent);
+            content: "";
+            position: absolute;
+            inset: 1px;
+            padding: 1px;
+            border-radius: var(--panel-border-radius);
+            background: repeat var(--identity-icon-color, var(--my-arrowpanel-gradient)) !important;
+            background-repeat: no-repeat !important;
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            pointer-events: none !important;
+        }
+    }
+}
+
+/* Autofill (example: login page) focus item background \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.autocomplete-richlistitem {
+    &[selected] {
+        background-color: var(--color-accent-primary-hover) !important;
+        color: FieldText !important;
+    }
+}
+
+/* Makes context navigation buttons appears as normal textual menuitems \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#context-navigation { flex-direction: column !important; }
+
+#context-navigation > .menuitem-iconic {
+    /* size */
+    padding: var(--menuitem-padding) !important;
+    margin: var(--menuitem-margin) !important;
+    justify-content: flex-start !important;
+
+    /* Display label */
+    &::before { 
+        content: attr(aria-label); 
+        order: 1 !important; 
+        padding-block: 1px !important;  /* Needed to match other items height */
+    }
+}
+
+/* Remove icons when all icons are disabled */
+@media -moz-pref("firefoxgx.icon.disabled") {
+    /* Text */
+    #context-navigation > .menuitem-iconic {
+        /* Remove icon */
+        > .menu-icon { display: none !important; }
+    }
+}
+
+/* 'back-forward-reload-addBookmark' buttons size \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media not -moz-pref("firefoxgx.icon.disabled") {
+    
+    #context-navigation > .menuitem-iconic {
+        & > .menu-icon {
+            width: var(--icon-size) !important;
+            height: var(--icon-size) !important;
+            margin-top: var(--space-xxsmall) !important;
+            margin-inline-end: var(--space-small) !important;
+            padding: unset !important;
+        }
+    }
+    
+    /* For RTL languages \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    #context-back:-moz-locale-dir(rtl), 
+    #context-forward:-moz-locale-dir(rtl), 
+    #context-reload:-moz-locale-dir(rtl) {
+        transform: none !important;
+    }
+    
+    /* icons - Invert horizontal */
+    #context-navigation > .menuitem-iconic {
+        & > .menu-icon:-moz-locale-dir(rtl) {
+            transform: scaleX(-1);
+        }
+    }
+}

@@ -1,8 +1,8 @@
-{ pkgs, settings, ... }:
+{ pkgs, settings, config, ... }:
 {
   programs.firefox = {
     enable = true;
-    #package = pkgs.firefox-devedition;
+    package = pkgs.firefox;
     profiles.${settings.profile.username} = {
       id = 0;
       name = settings.profile.username;
@@ -10,6 +10,7 @@
       extensions = import ./extensions { inherit pkgs; };
 
       settings = import ./settings.nix;
+      extraConfig = builtins.readFile ./user.js;
     };
 
     policies = {
@@ -18,4 +19,6 @@
       AutomaticallyDownloadSandboxModules = true;
     };
   };
+
+  home.file.".config/mozilla/firefox/${settings.profile.username}/chrome".source = config.lib.file.mkOutOfStoreSymlink ./chrome;
 }
