@@ -1,4 +1,4 @@
-{lib, settings, ...}:
+{ lib, settings, ... }:
 {
   nix.settings = {
     auto-optimise-store = true;
