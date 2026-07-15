@@ -6,7 +6,7 @@
     ./flatpak
     ./iwd
     ./kanata
-    ./NetworkManager
+    ./network-manager
     ./nginx
     # ./openssh
     ./pipewire
