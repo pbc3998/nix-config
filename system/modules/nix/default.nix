@@ -3,6 +3,7 @@
   nix.settings = {
     auto-optimise-store = true;
     trusted-users = [ "root" settings.identity.username ];
+    experimental-features = [ "nix-command" "flakes" ];
 
     trusted-substituters = [
       "https://nix-community.cachix.org"
