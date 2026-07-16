@@ -1,4 +1,4 @@
-{desktopsDir, ...}:
+{ desktopsDir, ... }:
 {
   imports = [
     ./modules.nix

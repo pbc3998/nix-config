@@ -1,76 +1,84 @@
-/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/firefox-gx */
 
 /* ________________________________________________________________________________________________________________________________
-  
+
             ############################################## GENERAL ICONS ##############################################
    ________________________________________________________________________________________________________________________________ */
 
 /* Back icon */
 
-#nav-bar #back-button{
-    list-style-image: url("../icons/back.svg") !important;    
+#nav-bar #back-button {
+  list-style-image: url("../icons/back.svg") !important;
 }
 
 /* forward icon */
 
 #nav-bar #forward-button {
-    list-style-image: url("../icons/forward.svg") !important;
+  list-style-image: url("../icons/forward.svg") !important;
 }
 
 /* Reload icon */
 
 #reload-button {
-    list-style-image: url("../icons/reload.svg") !important;
+  list-style-image: url("../icons/reload.svg") !important;
 }
 
 /* Stop icon */
 
 #stop-button {
-    list-style-image: url("../icons/stop.svg") !important;
+  list-style-image: url("../icons/stop.svg") !important;
 }
 
 /* Remove animation of stop-reload buttons */
 
-#stop-button .toolbarbutton-animatable-image, #reload-button .toolbarbutton-animatable-image {
-    animation-duration: 0ms !important;
+#stop-button .toolbarbutton-animatable-image,
+#reload-button .toolbarbutton-animatable-image {
+  animation-duration: 0ms !important;
 }
 
 /* home button */
 
 #home-button image {
-    list-style-image: url("../icons/home.svg") !important;
+  list-style-image: url("../icons/home.svg") !important;
 }
 
 /* Bookmark icons  */
 
-#pageAction-panel-bookmark, #star-button {
-    list-style-image: url("../icons/bookmark-empty.svg") !important;
+#pageAction-panel-bookmark,
+#star-button {
+  list-style-image: url("../icons/bookmark-empty.svg") !important;
 }
 
-#pageAction-panel-bookmark[starred], #star-button[starred] {
-    list-style-image: url("../icons/bookmark-fill.svg") !important;
+#pageAction-panel-bookmark[starred],
+#star-button[starred] {
+  list-style-image: url("../icons/bookmark-fill.svg") !important;
 }
 
-#pageAction-panel-bookmark[starred]:hover, #star-button-box:is(:hover, [open]) #star-button[starred] {
-    fill: var(--toolbarbutton-icon-fill) !important;
+#pageAction-panel-bookmark[starred]:hover,
+#star-button-box:is(:hover, [open]) #star-button[starred] {
+  fill: var(--toolbarbutton-icon-fill) !important;
 }
 
 /* Tracking protection icon */
 
 #tracking-protection-icon-container {
-    -moz-box-ordinal-group: 2 !important;
-    order: 2 !important;
+  -moz-box-ordinal-group: 2 !important;
+  order: 2 !important;
 }
 
-.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
+.urlbar-input-container[pageproxystate="valid"]
+  > #tracking-protection-icon-container
+  > #tracking-protection-icon-box {
   &[active] {
     list-style-image: url("../icons/shield.svg") !important;
     fill: var(--general-color) !important;
   }
 }
 
-.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container:is(:hover,[open]) > #tracking-protection-icon-box {
+.urlbar-input-container[pageproxystate="valid"]
+  > #tracking-protection-icon-container:is(:hover, [open])
+  > #tracking-protection-icon-box {
   fill: var(--toolbarbutton-icon-fill) !important;
   &[active] {
     fill: var(--toolbarbutton-icon-fill) !important;
@@ -79,56 +87,57 @@
 
 /* Lock icon */
 
-#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon, #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
-    list-style-image: url("../icons/security.svg") !important;
+#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon,
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
+  list-style-image: url("../icons/security.svg") !important;
 }
 
 /* reader mode */
 
-#reader-mode-button>.urlbar-icon {
-    list-style-image: url("../icons/read-mode.svg") !important;
+#reader-mode-button > .urlbar-icon {
+  list-style-image: url("../icons/read-mode.svg") !important;
 }
 
 /* 'Forget and delete history' icon on left-sidebar */
 
 #PersonalToolbar #panic-button image {
-    list-style-image: url("../icons/cleaner.svg") !important;
-    padding: 2px !important;
+  list-style-image: url("../icons/cleaner.svg") !important;
+  padding: 2px !important;
 }
 
 /* GX Mods extension */
 
-#gxmods_glacier_dog-BAP{
-    list-style-image: url("../icons/edit.svg") !important;
+#gxmods_glacier_dog-BAP {
+  list-style-image: url("../icons/edit.svg") !important;
 }
 
 /* Firefox view icon */
 
 #firefox-view-button {
-    list-style-image: url("../icons/firefoxview-close.svg") !important;
+  list-style-image: url("../icons/firefoxview-close.svg") !important;
 }
 
 #firefox-view-button[aria-pressed="true"] {
-    list-style-image: url("../icons/firefoxview-open.svg") !important;
+  list-style-image: url("../icons/firefoxview-open.svg") !important;
 }
 
 /* 'Delete' bookmark icon  */
 
-#editBookmarkPanelRemoveButton>hbox>.button-icon {
-    list-style-image: url("chrome://global/skin/icons/delete.svg") !important;
+#editBookmarkPanelRemoveButton > hbox > .button-icon {
+  list-style-image: url("chrome://global/skin/icons/delete.svg") !important;
 }
 
 /* Logo-url on Firefox secure pages */
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
-    list-style-image: url("../icons/foxfill.svg") !important;
+  list-style-image: url("../icons/foxfill.svg") !important;
 }
 
 /* Newtab favicon */
 
 .tab-icon-image[src="chrome://branding/content/icon32.png"] {
-    content: url("../icons/newtab-favicon.svg") !important;
-    fill: var(--identity-icon-color, var(--general-color)) !important;
+  content: url("../icons/newtab-favicon.svg") !important;
+  fill: var(--identity-icon-color, var(--general-color)) !important;
 }
 
 /* left and right urlbar separator */
@@ -136,7 +145,9 @@
 .urlbar-background {
   &::before,
   &::after {
-    content: ""; display: block; position: relative;
+    content: "";
+    display: block;
+    position: relative;
     background: url("../icons/urlbar-separator.svg");
     background-repeat: no-repeat;
     background-size: 6px 16px;
@@ -145,11 +156,13 @@
     -moz-context-properties: fill;
     opacity: 0.2;
     transition-duration: 400ms;
-    height: calc(-2px + var(--toolbar-height-personal) - var(--urlbar-padding-block)*2);
+    height: calc(
+      -2px + var(--toolbar-height-personal) - var(--urlbar-padding-block) * 2
+    );
 
     /* This directionality flipper for RTL languages */
     direction: ltr;
-    &:is([positionend],[sidebar-positionend]):not(:-moz-locale-dir(rtl)){
+    &:is([positionend], [sidebar-positionend]):not(:-moz-locale-dir(rtl)) {
       direction: rtl;
     }
   }
@@ -179,63 +192,66 @@
 }
 
 /* ________________________________________________________________________________________________________________________________
-  
-            Extended Contextual Menu Icons taken from Firefox-UI-Fix theme: https://github.com/black7375/Firefox-UI-Fix  
+
+            Extended Contextual Menu Icons taken from Firefox-UI-Fix theme: https://github.com/black7375/Firefox-UI-Fix
    ________________________________________________________________________________________________________________________________ */
 
-  /** Icons - List **************************************************************/
-  :root {
-    --uc-folder-icon: url("chrome://global/skin/icons/folder.svg") !important;
-    --uc-tab-icon: url("../icons/tab.svg") !important;
-    --uc-tab-copy-icon: url("../icons/tab-copy.svg") !important;
-    --uc-tab-unload-icon: url("../icons/tab-unload.svg") !important;
-    --uc-tab-multiple-icon: url("../icons/tab-desktop-multiple.svg") !important;
-    --uc-tab-close-duplicate-icon: url("../icons/close-duplicate-tabs.svg") !important;
-    --uc-new-tab-icon: url("../icons/new-tab.svg") !important;
-    --uc-new-tab-forward-icon: url("../icons/new-tab-forward.svg") !important;
-    --uc-new-tab-skip-forward-icon: url("../icons/new-tab-skip-forward.svg") !important;
-    --uc-new-tab-multiple-icon: url("../icons/new-tab-multiple.svg") !important;
-    --uc-sidebar-icon: url("chrome://browser/skin/sidebar-collapsed.svg") !important;
-    --uc-sidebar-icon-reverse: url("chrome://browser/skin/sidebars-right.svg") !important;
-  }
-  /** Library - Icons Replace ***************************************************/
-  /** Panel - Icons *************************************************************/
-  /** Menu - Icons Layout *******************************************************/
-  /** Icons for fork browsers ***************************************************/
-  /*= Waterfox =================================================================*/
-  /*= Tor Browser ==============================================================*/
-  /*= Floorp Browser ===========================================================*/
+/** Icons - List **************************************************************/
+:root {
+  --uc-folder-icon: url("chrome://global/skin/icons/folder.svg") !important;
+  --uc-tab-icon: url("../icons/tab.svg") !important;
+  --uc-tab-copy-icon: url("../icons/tab-copy.svg") !important;
+  --uc-tab-unload-icon: url("../icons/tab-unload.svg") !important;
+  --uc-tab-multiple-icon: url("../icons/tab-desktop-multiple.svg") !important;
+  --uc-tab-close-duplicate-icon: url("../icons/close-duplicate-tabs.svg") !important;
+  --uc-new-tab-icon: url("../icons/new-tab.svg") !important;
+  --uc-new-tab-forward-icon: url("../icons/new-tab-forward.svg") !important;
+  --uc-new-tab-skip-forward-icon: url("../icons/new-tab-skip-forward.svg") !important;
+  --uc-new-tab-multiple-icon: url("../icons/new-tab-multiple.svg") !important;
+  --uc-sidebar-icon: url("chrome://browser/skin/sidebar-collapsed.svg") !important;
+  --uc-sidebar-icon-reverse: url("chrome://browser/skin/sidebars-right.svg") !important;
+}
+/** Library - Icons Replace ***************************************************/
+/** Panel - Icons *************************************************************/
+/** Menu - Icons Layout *******************************************************/
+/** Icons for fork browsers ***************************************************/
+/*= Waterfox =================================================================*/
+/*= Tor Browser ==============================================================*/
+/*= Floorp Browser ===========================================================*/
 
-  :root {
-    --uc-folder-icon: url("../icons/folder.svg") !important;
-    --uc-tab-icon: url("../icons/tab-photon.svg") !important;
-    --uc-tab-copy-icon: url("../icons/tab-copy-photon.svg") !important;
-    --uc-tab-unload-icon: url("../icons/tab-unload-photon.svg") !important;
-    --uc-tab-multiple-icon: url("../icons/tab-multiple.svg") !important;
-    --uc-new-tab-icon: url("../icons/new-tab-photon.svg") !important;
-    --uc-new-tab-forward-icon: url("../icons/new-tab-forward-photon.svg") !important;
-    --uc-new-tab-skip-forward-icon: url("../icons/new-tab-skip-forward-photon.svg") !important;
-  }
+:root {
+  --uc-folder-icon: url("../icons/folder.svg") !important;
+  --uc-tab-icon: url("../icons/tab-photon.svg") !important;
+  --uc-tab-copy-icon: url("../icons/tab-copy-photon.svg") !important;
+  --uc-tab-unload-icon: url("../icons/tab-unload-photon.svg") !important;
+  --uc-tab-multiple-icon: url("../icons/tab-multiple.svg") !important;
+  --uc-new-tab-icon: url("../icons/new-tab-photon.svg") !important;
+  --uc-new-tab-forward-icon: url("../icons/new-tab-forward-photon.svg") !important;
+  --uc-new-tab-skip-forward-icon: url("../icons/new-tab-skip-forward-photon.svg") !important;
+}
 
-  @supports selector(:has(a)) {
-    :root:has(#sidebar-box[sidebar-positionend]) {
-      --uc-sidebar-icon: url("chrome://browser/skin/sidebars-right.svg") !important;
-      --uc-sidebar-icon-reverse: url("chrome://browser/skin/sidebars.svg") !important;
-    }
+@supports selector(:has(a)) {
+  :root:has(#sidebar-box[sidebar-positionend]) {
+    --uc-sidebar-icon: url("chrome://browser/skin/sidebars-right.svg") !important;
+    --uc-sidebar-icon-reverse: url("chrome://browser/skin/sidebars.svg") !important;
   }
+}
 
-  /* Newtab icon when tabs overflow 
+/* Newtab icon when tabs overflow
   #TabsToolbar #new-tab-button {
     --uc-new-tab-icon: url(chrome://global/skin/icons/plus.svg);
   }*/
 
-  .urlbarView-row[source="tabs"] > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-favicon,
-  #urlbar-engine-one-off-item-tabs {
-    list-style-image: var(--uc-tab-icon) !important;
-  }
+.urlbarView-row[source="tabs"]
+  > .urlbarView-row-inner
+  > .urlbarView-no-wrap
+  > .urlbarView-favicon,
+#urlbar-engine-one-off-item-tabs {
+  list-style-image: var(--uc-tab-icon) !important;
+}
 
-  /*= Standard Folder - More Visible ===========================================*/
-  /* on Toolbar and Menus
+/*= Standard Folder - More Visible ===========================================*/
+/* on Toolbar and Menus
   :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
     .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer]),
   :-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
@@ -246,15 +262,25 @@
     list-style-image: var(--uc-folder-icon) !important;
   } */
 
-  /* Standard Folder - Open */
-  :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
-    .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"],
-  :-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
-    treechildren::-moz-tree-image(title, container, open) {
-    list-style-image: url("../icons/folder-open.svg") !important;
-  }
-  /*= Other Folder - Inbox Icon ================================================*/
-  /* on Menus 
+/* Standard Folder - Open */
+:-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
+  .bookmark-item[container="true"]:not(
+    [query="true"],
+    [tagContainer],
+    [dayContainer]
+  )[open="true"],
+:-moz-any(
+    #bookmarks-view,
+    #historyTree,
+    #editBMPanel_folderTree,
+    #placesList,
+    #placeContent
+  )
+  treechildren::-moz-tree-image(title, container, open) {
+  list-style-image: url("../icons/folder-open.svg") !important;
+}
+/*= Other Folder - Inbox Icon ================================================*/
+/* on Menus
   #PlacesToolbar #OtherBookmarks,
   #BMB_bookmarksPopup #BMB_unsortedBookmarks,
   #bookmarksMenuPopup #menu_unsortedBookmarks,
@@ -266,7 +292,7 @@
   #editBMPanel_folderMenuList[selectedGuid="unfiled_____"] {
     list-style-image: url("../icons/mail-inbox-all.svg") !important;
   }*/
-  /* Other Folder - Open 
+/* Other Folder - Open
   #PlacesToolbar #OtherBookmarks[open="true"],
   #BMB_bookmarksPopup #BMB_unsortedBookmarks[open="true"],
   #bookmarksMenuPopup #menu_unsortedBookmarks[open="true"],
@@ -276,140 +302,156 @@
     treechildren::-moz-tree-image(container, open, queryFolder_unfiled_____) {
     list-style-image: url("../icons/mail-inbox.svg") !important;
   }*/
-  /*= Default Icon - Override ===================================================*/
-  /* https://github.com/mozilla/gecko-dev/blob/master/browser/themes/shared/places/tree-icons.css */
-  /* Query */
-  :-moz-any(#historyTree, #placesList, #placeContent) treechildren::-moz-tree-image(title, query) {
-    list-style-image: url("chrome://browser/skin/places/folder-smart.svg") !important;
-  }
-  /* History */
-  :-moz-any(#historyTree, #placesList, #placeContent) treechildren::-moz-tree-image(title, query, dayContainer),
-  :-moz-any(#historyTree, #placesList, #placeContent)
-    treechildren::-moz-tree-image(query, OrganizerQuery_history____v) {
-    list-style-image: url("chrome://browser/skin/history.svg") !important;
-  }
-  /* Downloads */
-  :-moz-any(#placesList, #placeContent) treechildren::-moz-tree-image(query, OrganizerQuery_downloads__v) {
-    list-style-image: url("chrome://browser/skin/downloads/downloads.svg") !important;
-  }
-  /* Tag */
-  :-moz-any(#placesList, #placeContent) treechildren::-moz-tree-image(title, query, tagContainer),
-  :-moz-any(#placesList, #placeContent) treechildren::-moz-tree-image(query, OrganizerQuery_tags_______v),
-  .bookmark-item[query][tagContainer] {
-    list-style-image: url("../icons/tag.svg") !important;
-  }
-  /* Bookmark */
-  :-moz-any(#placesList, #placeContent) treechildren::-moz-tree-image(query, OrganizerQuery_allbms_____v) {
-    list-style-image: url("../icons/bookmark-empty.svg") !important;
-  }
-  /* Bookmark Toolbar */
-  #BMB_bookmarksPopup #BMB_bookmarksToolbar,
-  #bookmarksMenuPopup #bookmarksToolbarFolderMenu,
-  :-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
-    treechildren::-moz-tree-image(container, queryFolder_toolbar_____),
-  #editBMPanel_folderMenuList[selectedGuid="toolbar_____"],
-  #editBMPanel_toolbarFolderItem,
-  #bookmarksToolbarFolderMenu,
-  #BMB_bookmarksToolbar,
-  #panelMenu_bookmarksToolbar,
-  #bookmarks-toolbar-button,
-  #bookmarks-toolbar-placeholder {
-    list-style-image: url("../icons/bookmarks-toolbar-alt.svg") !important;
-    --menuitem-icon: url("../icons/bookmarks-toolbar-alt.svg") !important;/**/
-  }
-  /* Bookmark Menu */
-  :-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
-    treechildren::-moz-tree-image(container, queryFolder_menu________) {
-    list-style-image: url("chrome://browser/skin/places/bookmarksMenu.svg") !important;
-  }
-  /*= Default Icon - Open ======================================================*/
-  /* Query */
-  :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
-    .bookmark-item[container="true"][query="true"]:not([tagContainer])[open="true"]
-    > .menu-iconic-left
-    > .menu-iconic-icon {
-    transform: rotate(15deg) !important;
-  }
-  /* History */
-  :-moz-any(#historyTree, #placesList, #placeContent) treechildren::-moz-tree-image(title, query, open, dayContainer),
-  :-moz-any(#historyTree, #placesList, #placeContent)
-    treechildren::-moz-tree-image(query, open, OrganizerQuery_history____v) {
-    list-style-image: url("../icons/history-reverse.svg") !important;
-  }
-  /* Tag */
-  :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
-    .bookmark-item[container="true"][tagContainer="true"][open="true"],
-  :-moz-any(#placesList, #placeContent) treechildren::-moz-tree-image(title, query, open, tagContainer),
-  :-moz-any(#placesList, #placeContent) treechildren::-moz-tree-image(query, open, OrganizerQuery_tags_______v) {
-    list-style-image: url("../icons/tag-open.svg") !important;
-  }
-  /* Bookmark */
-  :-moz-any(#placesList, #placeContent) treechildren::-moz-tree-image(query, open, OrganizerQuery_allbms_____v) {
-    list-style-image: url("chrome://browser/skin/bookmark-hollow.svg") !important;
-  }
-  /* Bookmark Toolbar */
-  #BMB_bookmarksPopup #BMB_bookmarksToolbar[open="true"],
-  #bookmarksMenuPopup #bookmarksToolbarFolderMenu[open="true"],
-  :-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
-    treechildren::-moz-tree-image(container, open, queryFolder_toolbar_____) {
-    list-style-image: url("../icons/bookmarksToolbar-open-alt.svg") !important;
-  }
-  /* Bookmark Menu */
-  :-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
-    treechildren::-moz-tree-image(container, open, queryFolder_menu________) {
-    list-style-image: url("../icons/bookmarksMenu-open.svg") !important; /* or bookmarksMenu-open2.svg" */
-  }
+/*= Default Icon - Override ===================================================*/
+/* https://github.com/mozilla/gecko-dev/blob/master/browser/themes/shared/places/tree-icons.css */
+/* Query */
+:-moz-any(#historyTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(title, query) {
+  list-style-image: url("chrome://browser/skin/places/folder-smart.svg") !important;
+}
+/* History */
+:-moz-any(#historyTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(title, query, dayContainer),
+:-moz-any(#historyTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(query, OrganizerQuery_history____v) {
+  list-style-image: url("chrome://browser/skin/history.svg") !important;
+}
+/* Downloads */
+:-moz-any(#placesList, #placeContent)
+  treechildren::-moz-tree-image(query, OrganizerQuery_downloads__v) {
+  list-style-image: url("chrome://browser/skin/downloads/downloads.svg") !important;
+}
+/* Tag */
+:-moz-any(#placesList, #placeContent)
+  treechildren::-moz-tree-image(title, query, tagContainer),
+:-moz-any(#placesList, #placeContent)
+  treechildren::-moz-tree-image(query, OrganizerQuery_tags_______v),
+.bookmark-item[query][tagContainer] {
+  list-style-image: url("../icons/tag.svg") !important;
+}
+/* Bookmark */
+:-moz-any(#placesList, #placeContent)
+  treechildren::-moz-tree-image(query, OrganizerQuery_allbms_____v) {
+  list-style-image: url("../icons/bookmark-empty.svg") !important;
+}
+/* Bookmark Toolbar */
+#BMB_bookmarksPopup #BMB_bookmarksToolbar,
+#bookmarksMenuPopup #bookmarksToolbarFolderMenu,
+:-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(container, queryFolder_toolbar_____),
+#editBMPanel_folderMenuList[selectedGuid="toolbar_____"],
+#editBMPanel_toolbarFolderItem,
+#bookmarksToolbarFolderMenu,
+#BMB_bookmarksToolbar,
+#panelMenu_bookmarksToolbar,
+#bookmarks-toolbar-button,
+#bookmarks-toolbar-placeholder {
+  list-style-image: url("../icons/bookmarks-toolbar-alt.svg") !important;
+  --menuitem-icon: url("../icons/bookmarks-toolbar-alt.svg") !important; /**/
+}
+/* Bookmark Menu */
+:-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(container, queryFolder_menu________) {
+  list-style-image: url("chrome://browser/skin/places/bookmarksMenu.svg") !important;
+}
+/*= Default Icon - Open ======================================================*/
+/* Query */
+:-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
+  .bookmark-item[container="true"][query="true"]:not(
+    [tagContainer]
+  )[open="true"]
+  > .menu-iconic-left
+  > .menu-iconic-icon {
+  transform: rotate(15deg) !important;
+}
+/* History */
+:-moz-any(#historyTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(title, query, open, dayContainer),
+:-moz-any(#historyTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(query, open, OrganizerQuery_history____v) {
+  list-style-image: url("../icons/history-reverse.svg") !important;
+}
+/* Tag */
+:-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
+  .bookmark-item[container="true"][tagContainer="true"][open="true"],
+:-moz-any(#placesList, #placeContent)
+  treechildren::-moz-tree-image(title, query, open, tagContainer),
+:-moz-any(#placesList, #placeContent)
+  treechildren::-moz-tree-image(query, open, OrganizerQuery_tags_______v) {
+  list-style-image: url("../icons/tag-open.svg") !important;
+}
+/* Bookmark */
+:-moz-any(#placesList, #placeContent)
+  treechildren::-moz-tree-image(query, open, OrganizerQuery_allbms_____v) {
+  list-style-image: url("chrome://browser/skin/bookmark-hollow.svg") !important;
+}
+/* Bookmark Toolbar */
+#BMB_bookmarksPopup #BMB_bookmarksToolbar[open="true"],
+#bookmarksMenuPopup #bookmarksToolbarFolderMenu[open="true"],
+:-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(container, open, queryFolder_toolbar_____) {
+  list-style-image: url("../icons/bookmarksToolbar-open-alt.svg") !important;
+}
+/* Bookmark Menu */
+:-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(container, open, queryFolder_menu________) {
+  list-style-image: url("../icons/bookmarksMenu-open.svg") !important; /* or bookmarksMenu-open2.svg" */
+}
 
-/*_____________________________________________________ Icons switch _____________________________________________________ 
+/*_____________________________________________________ Icons switch _____________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media not -moz-pref("firefoxgx.icon.disabled") {
-
   /* Replace variable setted in 'normal' - cause bug for some icons like 'customize toolbar'
   -- overwrite those icons with 'important' to solve it & specific add 'menuitem' before the item name */
-  menu, menuitem:not(.menuitem-iconic), menucaption {
+  menu,
+  menuitem:not(.menuitem-iconic),
+  menucaption {
     --menuitem-icon: url("../icons/blank.svg") !important;
     --menuitem-icon-fill: currentColor !important;
   }
-  
+
   /* Enable the icon space in all items \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .menu-icon {
     menuitem:not(.menuitem-iconic, [image]) > &,
-      menu:not(.menu-iconic) > & {
-        display: revert !important;
+    menu:not(.menu-iconic) > & {
+      display: revert !important;
     }
   }
-  
+
   /* Size some icons */
   .subviewbutton .toolbarbutton-icon {
     width: var(--icon-size);
     height: var(--icon-size);
   }
-  
+
   /* Needed to correct icon in 'bookmarks' menu from menubar \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .bookmark-item {
     --menuitem-icon: var(--bookmark-item-icon) !important;
   }
-  
+
   /* Enable the icon variable in all menus \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .menu-icon {
-    menuitem:not([type="radio"],[type="checkbox"]) > &, 
-      menu > & {
-        &:where(:not([srcset])) {
-          content: var(--menuitem-icon, url("../icons/blank.svg")) !important;
-          list-style-image: var(--menuitem-icon, url("../icons/blank.svg")) !important;
-        }
+    menuitem:not([type="radio"], [type="checkbox"]) > &,
+    menu > & {
+      &:where(:not([srcset])) {
+        content: var(--menuitem-icon, url("../icons/blank.svg")) !important;
+        list-style-image: var(
+          --menuitem-icon,
+          url("../icons/blank.svg")
+        ) !important;
+      }
     }
   }
-  
+
   /* Overwrite 'visibility hidden' in some menu icons \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .menu-icon {
     visibility: visible !important;
   }
-  
+
   /* Show icon in some checkbox or radio when not 'checked' \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   :is(
@@ -424,44 +466,54 @@
   #show-other-bookmarks_PersonalToolbar,            /* 'Show other bookmarks' */
   #spell-check-enabled                              /* 'Check spelling' - searchbox */
   ):not([checked]) .menu-icon {
-    content: var(--menuitem-icon, url("../icons/black.svg")) !important;/**/
+    content: var(--menuitem-icon, url("../icons/black.svg")) !important; /**/
     visibility: visible !important;
   }
-  
+
   /* Remove the check box when it is not checked to display the designated icon */
-  @media (-moz-platform: linux) {    
+  @media (-moz-platform: linux) {
     menuitem:is([type="checkbox"]):not([checked]) > .menu-icon {
       appearance: none !important;
     }
   }
-  
+
   /* Hidde icon when type radio e.g. Bookmarks toolbar - hide-show-onlyOnNewTab  - check spelling - menubar>sidebar>extensions */
-  menuitem:is([type="radio"],[type="checkbox"]):not([checked], .webextension-menuitem) .menu-icon {
+  menuitem:is([type="radio"], [type="checkbox"]):not(
+      [checked],
+      .webextension-menuitem
+    )
+    .menu-icon {
     visibility: hidden !important;
   }
-  
+
   /* Apply fill color to icons into arrowpanels - ** don't add 'important' ** \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .panel-no-padding[type="arrow"] .toolbarbutton-icon {
     -moz-context-properties: fill;
-    fill: light-dark(var(--tab-group-color, currentColor), var(--tab-group-color-invert, currentColor));
+    fill: light-dark(
+      var(--tab-group-color, currentColor),
+      var(--tab-group-color-invert, currentColor)
+    );
   }
-  
+
   /* Add border to not opened Group - Into 'all tabs' button \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .tab-group-icon .toolbarbutton-icon {
-    box-shadow: inset 0 0 0 1px light-dark(var(--tab-group-color, currentColor), var(--tab-group-color-invert, currentColor));
+    box-shadow: inset 0 0 0 1px
+      light-dark(
+        var(--tab-group-color, currentColor),
+        var(--tab-group-color-invert, currentColor)
+      );
     border-radius: 4px !important;
   }
-  
+
   /* Remove Icons space in some cases \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   #main-menubar>menu>.menu-icon,                /* Menubar main menu icons */
-  .in-menulist menuitem>.menu-icon              /* Audio permission */
-  {
-    display: none !important;    
+  .in-menulist menuitem>.menu-icon              /* Audio permission */ {
+    display: none !important;
   }
-  
+
   /* Apply margin to item text needed after add the icon in toolbarbuttons \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .subviewbutton:not(                   /* Don't apply margin -v */
@@ -471,10 +523,11 @@
   ) {
     & > .toolbarbutton-text,            /* General text */
     & label:not(.toolbarbutton-text),   /* e.g. Accout label and don't apply again in toobarbutton text */
-    & #appMenu-fxa-text {               /* e.g. Accout label when not sing in */
+    & #appMenu-fxa-text {
+      /* e.g. Accout label when not sing in */
       margin-inline-start: 0.5em !important;
     }
-    
+
     /* Some Icons added by pseudoelement - e.g. Accout, zoom icon */
     &::before {
       width: var(--icon-size);
@@ -483,7 +536,7 @@
       fill: currentColor !important;
     }
   }
-  
+
   /* Icons Color */
   /*= Panel - Main =============================================================*/
   /*= Panel - Account ==========================================================*/
@@ -525,11 +578,19 @@
     content: url("chrome://browser/skin/fxa/avatar-empty.svg") !important;
   }
 
-  #appMenu-fxa-status2:is([fxastatus="signedin"], [fxastatus="unverified"], [fxastatus="login-failed"])::before {
+  #appMenu-fxa-status2:is(
+      [fxastatus="signedin"],
+      [fxastatus="unverified"],
+      [fxastatus="login-failed"]
+    )::before {
     display: none;
   }
 
-  #appMenu-fxa-status2:is([fxastatus="signedin"], [fxastatus="unverified"], [fxastatus="login-failed"])
+  #appMenu-fxa-status2:is(
+      [fxastatus="signedin"],
+      [fxastatus="unverified"],
+      [fxastatus="login-failed"]
+    )
     #appMenu-fxa-label2::before {
     /* url("https://profile.accounts.firefox.com/v1/avatar/a") */
     content: "";
@@ -537,7 +598,7 @@
     background-size: 16px !important;
     background-image: var(--avatar-image-url) !important;
   }
-  
+
   #appMenu-empty-profiles-button,
   #PanelUI-fxa-menu-empty-profiles-button {
     list-style-image: url("../icons/profiles.svg") !important;
@@ -546,12 +607,12 @@
   #appMenu-new-tab-button2 {
     list-style-image: var(--uc-new-tab-icon) !important;
   }
-  
+
   /* Update avaliable */
-  
+
   .panel-banner-item {
     background-color: var(--color-accent-primary-hover) !important;
-    &> .toolbarbutton-icon {
+    & > .toolbarbutton-icon {
       background-image: url("../icons/foxfill.svg") !important;
       background-size: var(--icon-size) !important;
       order: 0 !important;
@@ -581,11 +642,11 @@
   #appMenu-passwords-button {
     list-style-image: url("chrome://browser/skin/login.svg") !important;
   }
-  
+
   #appMenu-unified-extensions-button {
     list-style-image: url("chrome://mozapps/skin/extensions/extension.svg") !important;
   }
-  
+
   #appMenu-extensions-themes-button {
     list-style-image: url("chrome://mozapps/skin/extensions/extension.svg") !important;
   }
@@ -721,14 +782,15 @@
   #PanelUI-fxa-menu-account-signout-button {
     list-style-image: url("../icons/sign-out.svg") !important;
   }
-  
+
   /* Inactive tabs - AppMenu */
-  
+
   toolbarbutton[itemtype="showinactivebutton"] {
     list-style-image: url("../icons/unload-tab.svg") !important;
   }
   /* Test the button in windowed mode */
-  toolbarbutton[itemtype="showmorebutton"], toolbarbutton[itemtype="showinactivebutton"] {
+  toolbarbutton[itemtype="showmorebutton"],
+  toolbarbutton[itemtype="showinactivebutton"] {
     padding-inline-start: var(--panel-menuitem-padding-inline) !important;
   }
 
@@ -769,8 +831,12 @@
     list-style-image: url("../icons/send-to-device.svg") !important;
   }
 
-  .pageAction-sendToDevice-device.subviewbutton.sync-menuitem.sendtab-target:not([clientType]),
-  .sendToDevice-device.subviewbutton.sync-menuitem.sendtab-target:not([clientType]) {
+  .pageAction-sendToDevice-device.subviewbutton.sync-menuitem.sendtab-target:not(
+      [clientType]
+    ),
+  .sendToDevice-device.subviewbutton.sync-menuitem.sendtab-target:not(
+      [clientType]
+    ) {
     list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
   }
 
@@ -903,7 +969,7 @@
 
   #appMenu-report-broken-site-button,
   #appMenu_help_reportSiteIssue,
-  #protections-popup-report-broken-site-button{
+  #protections-popup-report-broken-site-button {
     list-style-image: url("chrome://global/skin/icons/lightbulb.svg") !important;
   }
 
@@ -919,7 +985,10 @@
     list-style-image: url("chrome://global/skin/icons/info.svg") !important;
   }
 
-  #appMenu-bookmarks-button, #appMenu-library-bookmarks-button, #sidebar-switcher-bookmarks,#panelMenuBookmarkThisPage:not([starred]) {
+  #appMenu-bookmarks-button,
+  #appMenu-library-bookmarks-button,
+  #sidebar-switcher-bookmarks,
+  #panelMenuBookmarkThisPage:not([starred]) {
     list-style-image: url("../icons/bookmark-empty.svg") !important;
   }
 
@@ -951,11 +1020,11 @@
   #allTabsMenu-searchTabs {
     list-style-image: url("chrome://global/skin/icons/search-glass.svg") !important;
   }
-  
+
   #allTabsMenu-syncedTabs {
     list-style-image: url("chrome://browser/skin/synced-tabs.svg") !important;
   }
-  
+
   #allTabsMenu-closeDuplicateTabs {
     list-style-image: var(--uc-tab-close-duplicate-icon) !important;
   }
@@ -967,7 +1036,7 @@
   #allTabsMenu-hiddenTabsButton {
     list-style-image: url("../icons/eye-hide.svg") !important;
   }
-  
+
   :is(menuitem, toolbarbutton)[data-l10n-id="user-context-manage-containers"] {
     list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
     --menuitem-icon: url("chrome://global/skin/icons/settings.svg") !important;
@@ -1090,7 +1159,10 @@
 
   .sync-engine-tabs .checkbox-icon,
   .sync-engine-tabs.sync-engine-image,
-  #sidebar-box[sidebarcommand="viewTabsSidebar"] > #sidebar-header > #sidebar-switcher-target > #sidebar-icon,
+  #sidebar-box[sidebarcommand="viewTabsSidebar"]
+    > #sidebar-header
+    > #sidebar-switcher-target
+    > #sidebar-icon,
   #sync-button {
     list-style-image: url("../icons/synced-tabs.svg") !important;
   }
@@ -1104,8 +1176,10 @@
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_newTab,
   #tabcenter-reborn_ariasuni-menuitem-_newTabContextMenuOpenAlternatePosition,
   #sidebartabs_asamuzak_jp-menuitem-_newTab,
-  #new-tab-button-popup > menuitem[command="Browser:NewUserContextTab"][data-usercontextid="0"],
-  .new-tab-popup > menuitem[command="Browser:NewUserContextTab"][data-usercontextid="0"] {
+  #new-tab-button-popup
+    > menuitem[command="Browser:NewUserContextTab"][data-usercontextid="0"],
+  .new-tab-popup
+    > menuitem[command="Browser:NewUserContextTab"][data-usercontextid="0"] {
     --menuitem-icon: var(--uc-new-tab-icon) !important;
   }
   #tabcenter-reborn_ariasuni-menuitem-_newTabContextMenuOpenInWindow {
@@ -1114,40 +1188,40 @@
   #tabcenter-reborn_ariasuni-menuitem-_newTabContextMenuOpenInPrivateWindow {
     --menuitem-icon: url("chrome://browser/skin/privateBrowsing.svg") !important;
   }
-  
+
   #context_moveTabToNewGroup,
   #context_moveTabToGroup {
-      --menuitem-icon: url("../icons/add-tab-to-group.svg") !important;
+    --menuitem-icon: url("../icons/add-tab-to-group.svg") !important;
   }
-  
+
   #context_moveTabToSavedGroup > .menu-icon {
     content: url("../icons/send-tab-to-group.svg") !important;
   }
-  
+
   #context_moveTabToSplitView,
   #context_separateSplitView,
   #context-openlinkinsplitview,
   menuitem[command="splitViewCmd_separateTabs"] {
     --menuitem-icon: url("../icons/split-view-horizontal.svg") !important;
   }
-  
+
   #context_reverseSplitView,
   menuitem[command="splitViewCmd_reverseTabs"] {
     --menuitem-icon: url("../icons/reverse-tabs-splitview.svg") !important;
   }
-  
+
   #context_ungroupSplitView {
     --menuitem-icon: url("../icons/sign-out.svg") !important;
   }
-  
-  #context_moveTabToGroupNewGroup>.menu-icon {
+
+  #context_moveTabToGroupNewGroup > .menu-icon {
     content: url("chrome://global/skin/icons/plus.svg") !important;
   }
-  
+
   #context_ungroupTab {
     --menuitem-icon: url("../icons/close-duplicate-tabs.svg") !important;
   }
-  
+
   #context_reloadTab,
   #context_reloadSelectedTabs,
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_reloadTab,
@@ -1173,11 +1247,11 @@
   #sidebartabs_asamuzak_jp-menuitem-_muteTab[label="Unmute Tab"] {
     --menuitem-icon: url("chrome://global/skin/media/audio.svg") !important;
   }
-  
+
   #context_unloadTab {
     --menuitem-icon: url("../icons/unload-tab.svg") !important;
   }
-  
+
   #context_pinTab,
   #context_pinSelectedTabs,
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_pinTab,
@@ -1211,36 +1285,36 @@
   #sidebartabs_asamuzak_jp-menuitem-_bookmarkAllTabs {
     --menuitem-icon: url("../icons/bookmark-empty.svg") !important;
   }
-  
+
   #context_addNote {
     --menuitem-icon: url("chrome://global/skin/icons/tab-notes.svg") !important;
   }
-  
+
   #context_moveTabOptions,
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_moveTab,
   #tabcenter-reborn_ariasuni-menuitem-_contextMenuMoveTab,
   #sidebartabs_asamuzak_jp-menuitem-_moveTab {
     --menuitem-icon: url("../icons/arrow-swap.svg") !important;
   }
-  
+
   #context_moveToStart,
   #context_closeTabsToTheStart {
     --menuitem-icon: url("chrome://browser/skin/back.svg") !important;
   }
-  
+
   #context_moveToEnd,
   #context_closeTabsToTheEnd {
     --menuitem-icon: url("chrome://browser/skin/forward.svg") !important;
   }
-  
+
   #context_closeOtherTabs {
     --menuitem-icon: url("chrome://global/skin/icons/close.svg") !important;
   }
-  
+
   #context_openTabInWindow {
     --menuitem-icon: url("chrome://browser/skin/window.svg") !important;
   }
-  
+
   #context_sendTabToDevice,
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_sendTabsToDevice {
     --menuitem-icon: url("../icons/send-to-device.svg") !important;
@@ -1250,19 +1324,19 @@
     /* At windows */
     --menuitem-icon: url("../icons/share.svg") !important;
   }
-    
-  /*  new-tab-button-popup =====================================================*/  /*  toolbar-context-menu =====================================================*/
-  /*  Tab Mix Plus =============================================================*/  /*  contentAreaContextMenu ===================================================*/
-  /*  main-context-menu-frame ==================================================*/  /*  Tab Mix Plus =============================================================*/
-  /*  downloadsContextMenu =====================================================*/  /*  placeContext =============================================================*/ 
-  /*  Notification =============================================================*/  /*  blockedPopupOptions ======================================================*/
-  /*  autohide-context =========================================================*/  /*  pictureInPictureToggleContextMenu ========================================*/
-  /*  pageActionContextMenu ====================================================*/  /*  customizationPanelItemContextMenu ========================================*/
-  /*  customizationPaletteItemContextMenu ======================================*/  /*  customizationPanelContextMenu ============================================*/
-  /*  downloads-button-autohide-panel ==========================================*/  /*  SyncedTabsSidebarContext =================================================*/
-  /*  SyncedTabsSidebarTabsFilterContext =======================================*/  /*  urlbar-input-container ===================================================*/
-  /*  textbox-contextmenu ======================================================*/  /*  context_sendTabToDevicePopupMenu =========================================*/
-  /*  unified-extensions-context-menu ==========================================*/  /*  urlbarView-result-menu ===================================================*/
+
+  /*  new-tab-button-popup =====================================================*/ /*  toolbar-context-menu =====================================================*/
+  /*  Tab Mix Plus =============================================================*/ /*  contentAreaContextMenu ===================================================*/
+  /*  main-context-menu-frame ==================================================*/ /*  Tab Mix Plus =============================================================*/
+  /*  downloadsContextMenu =====================================================*/ /*  placeContext =============================================================*/
+  /*  Notification =============================================================*/ /*  blockedPopupOptions ======================================================*/
+  /*  autohide-context =========================================================*/ /*  pictureInPictureToggleContextMenu ========================================*/
+  /*  pageActionContextMenu ====================================================*/ /*  customizationPanelItemContextMenu ========================================*/
+  /*  customizationPaletteItemContextMenu ======================================*/ /*  customizationPanelContextMenu ============================================*/
+  /*  downloads-button-autohide-panel ==========================================*/ /*  SyncedTabsSidebarContext =================================================*/
+  /*  SyncedTabsSidebarTabsFilterContext =======================================*/ /*  urlbar-input-container ===================================================*/
+  /*  textbox-contextmenu ======================================================*/ /*  context_sendTabToDevicePopupMenu =========================================*/
+  /*  unified-extensions-context-menu ==========================================*/ /*  urlbarView-result-menu ===================================================*/
 
   #context_shareTabURL,
   menuitem.share-tab-url-item {
@@ -1276,7 +1350,7 @@
   #sidebartabs_asamuzak_jp-menuitem-_reopenTabInContainer {
     --menuitem-icon: url("../icons/container-openin-16.svg") !important;
   }
-  
+
   #context_selectAllTabs,
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_selectAllTabs,
   #treestyletab_piro_sakura_ne_jp-menuitem-_noContextTab\:context_selectAllTabs,
@@ -1293,7 +1367,7 @@
   menuitem[command="splitViewCmd_closeTabs"] {
     --menuitem-icon: url("chrome://global/skin/icons/close.svg") !important;
   }
-  
+
   #context_closeDuplicateTabs {
     --menuitem-icon: var(--uc-tab-close-duplicate-icon) !important;
   }
@@ -1312,7 +1386,7 @@
   #sidebartabs_asamuzak_jp-menuitem-_undoCloseTab {
     --menuitem-icon: url("../icons/undo.svg") !important;
   }
-  
+
   #context_toggleVerticalTabs,
   #toolbar-context-toggle-vertical-tabs {
     --menuitem-icon: url("../icons/logo_tree-tabs.svg") !important;
@@ -1322,7 +1396,7 @@
   .new-tab-popup > menuitem[command="Browser:OpenAboutContainers"] {
     --menuitem-icon: url("chrome://global/skin/icons/settings.svg") !important;
   }
-  
+
   /* Disabled item icon - e.g. 'Extension can read and change data' */
   menuitem[disabled] {
     --menuitem-icon: url("chrome://global/skin/icons/info.svg") !important;
@@ -1331,7 +1405,7 @@
   menuitem.customize-context-manageExtension {
     --menuitem-icon: url("chrome://global/skin/icons/settings.svg") !important;
   }
-  
+
   menuitem.customize-context-removeExtension {
     --menuitem-icon: url("chrome://global/skin/icons/delete.svg") !important;
   }
@@ -1339,8 +1413,8 @@
   menuitem.customize-context-reportExtension {
     --menuitem-icon: url("../icons/send.svg") !important;
   }
-  
-  #toolbar-context-customize-sidebar>.menu-icon {
+
+  #toolbar-context-customize-sidebar > .menu-icon {
     --menuitem-icon: url("chrome://global/skin/icons/settings.svg") !important;
   }
 
@@ -1359,7 +1433,6 @@
 }
 
 @media not -moz-pref("firefoxgx.icon.disabled") {
-
   #toolbar-context-always-open-downloads-panel {
     /* checkbox */
     --menuitem-icon: url("../icons/drawer-arrow-download.svg") !important;
@@ -1512,9 +1585,9 @@
   #context-openlinkprivate {
     --menuitem-icon: url("chrome://browser/skin/privateBrowsing.svg") !important;
   }
-  
+
   #context-previewlink {
-    --menuitem-icon: url('chrome://global/skin/icons/eye.svg') !important;
+    --menuitem-icon: url("chrome://global/skin/icons/eye.svg") !important;
   }
 
   #context-bookmarklink {
@@ -1729,11 +1802,11 @@
   #context-print-selection {
     --menuitem-icon: url("chrome://global/skin/icons/print.svg") !important;
   }
-  
+
   #context-copy-link-to-highlight {
     --menuitem-icon: url("../icons/copy-link-to-highlight.svg") !important;
   }
-  
+
   #context-copy-clean-link-to-highlight {
     --menuitem-icon: url("../icons/copy-clean-link-to-highlight.svg") !important;
   }
@@ -1741,17 +1814,18 @@
   #context-take-screenshot {
     --menuitem-icon: url("../icons/screenshot-1.svg") !important;
   }
-  
+
   #context-add-engine {
     --menuitem-icon: url("chrome://global/skin/icons/search-glass.svg") !important;
   }
-  
+
   #context-add-engine {
     &::before {
       content: "";
       position: absolute;
       display: block;
-      background: url(chrome://browser/skin/search-indicator-badge-add.svg) no-repeat center;
+      background: url(chrome://browser/skin/search-indicator-badge-add.svg)
+        no-repeat center;
       height: 11px;
       width: 11px;
       margin-inline-start: 9px;
@@ -1759,58 +1833,58 @@
       z-index: 1;
     }
   }
-  
+
   /* No AI selected */
   [data-l10n-id="genai-menu-no-provider-2"] {
     --menuitem-icon: url("chrome://global/skin/icons/highlights.svg") !important;
   }
-  
+
   menuitem[data-l10n-id="genai-menu-choose-chatbot"] {
     --menuitem-icon: url("../icons/choose.svg") !important;
   }
 
   /* ChatGPT */
-  [data-l10n-args*='ChatGPT'],
-  menuitem[data-l10n-args*='ChatGPT'] {
+  [data-l10n-args*="ChatGPT"],
+  menuitem[data-l10n-args*="ChatGPT"] {
     --menuitem-icon: url("../icons/logo_chatGPT.svg") !important;
-    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/chatgpt.svg") !important; !important;
+    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/chatgpt.svg") !important;
   }
 
   /* Anthropic Claude */
-  [data-l10n-args*='Anthropic'],
-  menuitem[data-l10n-args*='Anthropic'] {
+  [data-l10n-args*="Anthropic"],
+  menuitem[data-l10n-args*="Anthropic"] {
     --menuitem-icon: url("../icons/logo_anthropic-claude.svg") !important;
-    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/claude.svg") !important; !important;
+    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/claude.svg") !important;
   }
 
   /* Google Gemini */
-  [data-l10n-args*='Google'],
-  menuitem[data-l10n-args*='Google'] {
+  [data-l10n-args*="Google"],
+  menuitem[data-l10n-args*="Google"] {
     --menuitem-icon: url("../icons/logo_google-gemini.svg") !important;
-    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/gemini.svg") !important; !important;
+    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/gemini.svg") !important;
   }
 
   /* Google HuggingChat */
-  [data-l10n-args*='HuggingChat'],
-  menuitem[data-l10n-args*='HuggingChat'] {
+  [data-l10n-args*="HuggingChat"],
+  menuitem[data-l10n-args*="HuggingChat"] {
     --menuitem-icon: url("../icons/logo_hugging-chat.svg") !important;
-    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/huggingchat.svg") !important; !important;
+    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/huggingchat.svg") !important;
   }
 
   /* Google Mistral */
-  [data-l10n-args*='Mistral'],
-  menuitem[data-l10n-args*='Mistral'] {
+  [data-l10n-args*="Mistral"],
+  menuitem[data-l10n-args*="Mistral"] {
     --menuitem-icon: url("../icons/logo_mistral.svg") !important;
-    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/lechat.svg") !important; !important;
+    --menuitem-icon: url("chrome://browser/content/genai/assets/brands/lechat.svg") !important;
   }
 
   /* Google Copilot */
-  [data-l10n-args*='Copilot'],
-  menuitem[data-l10n-args*='Copilot'] {
+  [data-l10n-args*="Copilot"],
+  menuitem[data-l10n-args*="Copilot"] {
     --menuitem-icon: url("chrome://browser/content/genai/assets/brands/copilot.svg") !important;
   }
 
-  :is(#context_askChat,#context-ask-chat)>menupopup>menuitem:first-child {
+  :is(#context_askChat, #context-ask-chat) > menupopup > menuitem:first-child {
     --menuitem-icon: url("chrome://global/skin/icons/newsfeed.svg") !important;
   }
 
@@ -1822,7 +1896,7 @@
   #context-searchselect-private {
     --menuitem-icon: url("chrome://global/skin/icons/search-glass.svg") !important;
   }
-  
+
   #context-translate-selection {
     --menuitem-icon: url("../icons/translations.svg") !important;
   }
@@ -1837,7 +1911,7 @@
   }
 
   #spell-add-dictionaries-main,
-  #spell-add-dictionaries{
+  #spell-add-dictionaries {
     --menuitem-icon: url("../icons/book-add.svg") !important;
   }
 
@@ -1865,42 +1939,44 @@
   #context-inspect {
     --menuitem-icon: url("../icons/command-pick.svg") !important;
   }
-  
+
   /* 'Side view' extension */
-  
-  :is(#side-view_mozilla_org-menuitem-_open-in-sidebar .menu-icon,
-      #side-view_mozilla_org-menuitem-_open-link-in-sidebar .menu-icon) {
+
+  :is(
+    #side-view_mozilla_org-menuitem-_open-in-sidebar .menu-icon,
+    #side-view_mozilla_org-menuitem-_open-link-in-sidebar .menu-icon
+  ) {
     width: 0px !important;
   }
-  
+
   #side-view_mozilla_org-menuitem-_open-in-sidebar:before,
-  #side-view_mozilla_org-menuitem-_open-link-in-sidebar:before{
-        content: '' !important;
-        width:16px !important;
-        height:16px !important;
-        background: url("../icons/logo_side-view.svg") !important;
-        background-size: 16px 16px !important;
-        border-radius: 4px !important;
-        -moz-context-properties: fill !important;
-        fill: var(--panel-text-color, #1245ef) !important;
+  #side-view_mozilla_org-menuitem-_open-link-in-sidebar:before {
+    content: "" !important;
+    width: 16px !important;
+    height: 16px !important;
+    background: url("../icons/logo_side-view.svg") !important;
+    background-size: 16px 16px !important;
+    border-radius: 4px !important;
+    -moz-context-properties: fill !important;
+    fill: var(--panel-text-color, #1245ef) !important;
   }
 
   #context-back {
     --menuitem-icon: url("../icons/back.svg") !important;
   }
-  
+
   #context-forward {
     --menuitem-icon: url("../icons/forward.svg") !important;
   }
-  
+
   #context-reload {
     --menuitem-icon: url("../icons/reload.svg") !important;
   }
-  
+
   #context-stop {
     --menuitem-icon: url("chrome://global/skin/icons/close.svg") !important;
   }
-  
+
   #context-bookmarkpage {
     --menuitem-icon: url("../icons/bookmark-empty.svg") !important;
   }
@@ -2159,7 +2235,8 @@
     --menuitem-icon: url("chrome://global/skin/icons/check.svg") !important;
   }
 
-  #blockedPopupOptions > menuitem[oncommand="gPopupBlockerObserver.editPopupSettings();"] {
+  #blockedPopupOptions
+    > menuitem[oncommand="gPopupBlockerObserver.editPopupSettings();"] {
     --menuitem-icon: url("chrome://global/skin/icons/edit.svg") !important;
   }
 
@@ -2182,7 +2259,8 @@
     --menuitem-icon: url("chrome://browser/skin/fullscreen-exit.svg") !important;
   }
 
-  #pictureInPictureToggleContextMenu > menuitem[oncommand="PictureInPicture.hideToggle();"] {
+  #pictureInPictureToggleContextMenu
+    > menuitem[oncommand="PictureInPicture.hideToggle();"] {
     --menuitem-icon: url("../icons/eye-hide.svg") !important;
   }
 
@@ -2351,17 +2429,16 @@
   menuitem[data-l10n-id="genai-menu-remove-provider"] {
     --menuitem-icon: url("chrome://global/skin/icons/delete.svg") !important;
   }
-  
+
   menuitem.searchbar-paste-and-search {
     --menuitem-icon: url("../icons/edit-paste-search.svg") !important;
   }
 }
 
 @media not -moz-pref("firefoxgx.icon.disabled") {
-  
   menuitem.searchbar-clear-history {
     --menuitem-icon: url("../icons/forget.svg") !important;
-  }  
+  }
   .sync-menuitem.sendtab-target[clientType="phone"] {
     --menuitem-icon: url("../icons/device-phone.svg") !important;
   }
@@ -2391,11 +2468,11 @@
   menuitem.unified-extensions-context-menu-pin-to-toolbar {
     --menuitem-icon: url("chrome://browser/skin/pin.svg") !important;
   }
-  
+
   menuitem.unified-extensions-context-menu-move-widget-up {
     --menuitem-icon: url("chrome://global/skin/icons/arrow-up.svg") !important;
   }
-  
+
   menuitem.unified-extensions-context-menu-move-widget-down {
     --menuitem-icon: url("chrome://global/skin/icons/arrow-down.svg") !important;
   }
@@ -2418,9 +2495,9 @@
   menuitem.urlbarView-result-menuitem[data-command="help"] {
     --menuitem-icon: url("chrome://global/skin/icons/info.svg") !important;
   }
-  
+
   /*= main-menubar =============================================================*/
-  #file-menu>.menu-icon {
+  #file-menu > .menu-icon {
     --menuitem-icon: url("../icons/mail-inbox-all.svg") !important;
   }
   #edit-menu {
@@ -2506,7 +2583,7 @@
   /* menuWebDeveloperPopup sub menu */
   /*= windowPopup ==============================================================*/
   /*= menu_HelpPopup ===========================================================*/
-  
+
   #menu_redo {
     --menuitem-icon: url("../icons/redo.svg") !important;
   }
@@ -2534,7 +2611,7 @@
   #menu_find {
     --menuitem-icon: url("chrome://global/skin/icons/search-glass.svg") !important;
   }
-  
+
   #menu_findAgain {
     --menuitem-icon: url("../icons/find-again.svg") !important;
   }
@@ -2803,7 +2880,6 @@
     --menuitem-icon: url("chrome://global/skin/icons/info.svg") !important;
   }
 
-
   /*= organizeButtonPopup ======================================================*/
   #newbookmark {
     --menuitem-icon: url("../icons/bookmark-empty.svg") !important;
@@ -2840,7 +2916,6 @@
     --menuitem-icon: url("chrome://global/skin/icons/delete.svg") !important;
   }
 
-  
   #orgSelectAll {
     --menuitem-icon: url("../icons/select-all-on.svg") !important;
   }
@@ -2861,7 +2936,6 @@
     --menuitem-icon: url("../icons/datastore.svg") !important;
   }
 
-
   #fileRestoreMenu {
     --menuitem-icon: url("../icons/datarestore.svg") !important;
   }
@@ -2881,7 +2955,7 @@
   #appMenu-restart-button {
     list-style-image: url("../icons/refresh-cw.svg") !important;
   }
-  
+
   #menu_FileRestartItem {
     --menuitem-icon: url("../icons/refresh-cw.svg") !important;
   }
@@ -2891,7 +2965,7 @@
   menuitem.privatetab-icon {
     --menuitem-icon: url("../icons/private-favicon.svg") !important;
   }
-  
+
   #appMenuNewIdentity {
     list-style-image: url("chrome://browser/skin/new_identity.svg") !important;
   }
@@ -2901,7 +2975,7 @@
   #appMenu_torBrowserUserManual {
     list-style-image: url("chrome://browser/skin/onion.svg") !important;
   }
-  
+
   #menu_newIdentity {
     --menuitem-icon: url("chrome://browser/skin/new_identity.svg") !important;
   }
@@ -2953,10 +3027,12 @@
   #usercssloader-submenupopup > menuitem[data-l10n-id="open-css-folder"] {
     --menuitem-icon: var(--uc-folder-icon) !important;
   }
-  #usercssloader-submenupopup > menuitem[data-l10n-id="edit-userChromeCss-editor"] {
+  #usercssloader-submenupopup
+    > menuitem[data-l10n-id="edit-userChromeCss-editor"] {
     --menuitem-icon: url("chrome://browser/skin/window.svg") !important;
   }
-  #usercssloader-submenupopup > menuitem[data-l10n-id="edit-userContentCss-editor"] {
+  #usercssloader-submenupopup
+    > menuitem[data-l10n-id="edit-userContentCss-editor"] {
     --menuitem-icon: url("chrome://global/skin/icons/page-portrait.svg") !important;
   }
   #context_toggleToPrivateContainer,
@@ -2986,39 +3062,39 @@
   #uninstall-ssb-contextmenu {
     --menuitem-icon: url("../icons/pwa-remove.svg") !important;
   }
-  /* Tabs group context-menu */  
+  /* Tabs group context-menu */
   #tabGroupEditor_addNewTabInGroup {
     list-style-image: url("../icons/new-tab.svg") !important;
-  }  
+  }
   #tabGroupEditor_moveGroupToNewWindow {
-      list-style-image: url("../icons/arrow-swap.svg") !important;
-  }  
+    list-style-image: url("../icons/arrow-swap.svg") !important;
+  }
   #tabGroupEditor_saveAndCloseGroup {
     list-style-image: url("../icons/save-group.svg") !important;
-  }  
+  }
   #tabGroupEditor_copyAllLinks {
     list-style-image: url("../icons/link.svg") !important;
   }
-  
+
   #tabGroupEditor_ungroupTabs {
     list-style-image: url("../icons/ungroup-tabs.svg") !important;
-  }  
+  }
   #tabGroupEditor_deleteGroup {
     list-style-image: url("chrome://global/skin/icons/delete.svg") !important;
-  }  
+  }
   #menu_newProfile {
     --menuitem-icon: url(chrome://global/skin/icons/plus.svg) !important;
-  }  
+  }
   #profiles-menu,
   #menu_manageProfiles,
   #profiles-manage-profiles-button {
     --menuitem-icon: url("../icons/profiles.svg") !important;
     list-style-image: url("../icons/profiles.svg") !important;
-  }  
-  
+  }
+
   /* Library window - Menubar icons */
-  @-moz-document url("chrome://browser/content/places/places.xhtml") {
-    
+  @-moz-document url("chrome://browser/content/places/places.xhtml")
+  {
     #organizeButton {
       --menuitem-icon: url("chrome://global/skin/icons/settings.svg") !important;
     }

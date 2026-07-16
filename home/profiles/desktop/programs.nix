@@ -1,4 +1,4 @@
-{programsDir, ...}: {
+{ programsDir, ... }: {
   imports = [
     "${programsDir}/atuin"
     "${programsDir}/bat"

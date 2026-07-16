@@ -54,7 +54,7 @@ let
       ${name} = nixpkgs.lib.nixosSystem {
         inherit (nixos) specialArgs;
         modules = (nixos.mkModules { inherit host profile extraModules; }) ++ [
-          ({lib, ...}:{
+          ({ lib, ... }: {
             options._profile = lib.mkOption {
               type = lib.types.enum profiles;
               description = "This helps Home Manager identify the target profile";
@@ -75,20 +75,20 @@ let
     default = nixos.mkBase {
       host = hostDefault;
       profile = profileDefault;
-      extraModules = [];
+      extraModules = [ ];
       name = "default";
     };
 
-    mkNixos = {extraModules ? [],}:
-    let
-      configCombination = nixpkgs.lib.cartesianProduct {
-        host = hosts;
-        profile = profiles;
-      };
+    mkNixos = { extraModules ? [ ], }:
+      let
+        configCombination = nixpkgs.lib.cartesianProduct {
+          host = hosts;
+          profile = profiles;
+        };
 
-      configs = (map ({host, profile}: nixos.mkBase { inherit host profile extraModules; }) configCombination) ++ [ nixos.default ];
-    in
-    nixpkgs.lib.mergeAttrsList configs;
+        configs = (map ({ host, profile }: nixos.mkBase { inherit host profile extraModules; }) configCombination) ++ [ nixos.default ];
+      in
+      nixpkgs.lib.mergeAttrsList configs;
   };
 
   # ==================== Home-Manager ====================
@@ -109,26 +109,26 @@ let
       desktopsDir = "${dir.home}/desktops";
     };
 
-    mkBase-standalone = {profile, hostPlatform, extraModules, raw ? false}:
-    let
-      common = {
-        inherit (home) specialArgs;
+    mkBase-standalone = { profile, hostPlatform, extraModules, raw ? false }:
+      let
+        common = {
+          inherit (home) specialArgs;
 
-        modules = home.mkModules { inherit profile extraModules; };
+          modules = home.mkModules { inherit profile extraModules; };
 
-        pkgs = import nixpkgs {
-          inherit overlays;
-          localSystem = { system = hostPlatform; };
-          config.allowUnfree = true;
+          pkgs = import nixpkgs {
+            inherit overlays;
+            localSystem = { system = hostPlatform; };
+            config.allowUnfree = true;
+          };
         };
-      };
-    in
-    if raw then
-      inputs.home-manager.lib.homeManagerConfiguration common
-    else if (hostPlatform == hostPlatformPriority) then
-      { ${profile} = inputs.home-manager.lib.homeManagerConfiguration common; }
-    else
-      { "${profile}-${hostPlatform}" = inputs.home-manager.lib.homeManagerConfiguration common; };
+      in
+      if raw then
+        inputs.home-manager.lib.homeManagerConfiguration common
+      else if (hostPlatform == hostPlatformPriority) then
+        { ${profile} = inputs.home-manager.lib.homeManagerConfiguration common; }
+      else
+        { "${profile}-${hostPlatform}" = inputs.home-manager.lib.homeManagerConfiguration common; };
 
     default = home.mkBase-standalone {
       default = home.mkBase-standalone {
@@ -138,31 +138,31 @@ let
       };
     };
 
-    mkHome = {extraModules ? [], standalone ? true}:
-    let
-      configCombination = nixpkgs.lib.cartesianProduct {
-        hostPlatform = hostPlatforms;
-        profile = profiles;
-      };
-
-      configs = (map ({ hostPlatform, profile }: home.mkBase-standalone { inherit hostPlatform profile extraModules; }) configCombination);
-    in
-    if standalone then
-      (nixpkgs.lib.mergeAttrsList (configs ++ [ { default = home.default; } ]))
-    else
-    {
-      extraSpecialArgs = home.specialArgs;
-
-      useGlobalPkgs = true;
-      useUserPackages = true;
-
-      users.${settings.identity.username} = {osConfig, ...}:{
-        imports = home.mkModules {
-          inherit extraModules;
-          profile = osConfig._profile;
+    mkHome = { extraModules ? [ ], standalone ? true }:
+      let
+        configCombination = nixpkgs.lib.cartesianProduct {
+          hostPlatform = hostPlatforms;
+          profile = profiles;
         };
-      };
-    };
+
+        configs = (map ({ hostPlatform, profile }: home.mkBase-standalone { inherit hostPlatform profile extraModules; }) configCombination);
+      in
+      if standalone then
+        (nixpkgs.lib.mergeAttrsList (configs ++ [{ default = home.default; }]))
+      else
+        {
+          extraSpecialArgs = home.specialArgs;
+
+          useGlobalPkgs = true;
+          useUserPackages = true;
+
+          users.${settings.identity.username} = { osConfig, ... }: {
+            imports = home.mkModules {
+              inherit extraModules;
+              profile = osConfig._profile;
+            };
+          };
+        };
   };
 in
 {
