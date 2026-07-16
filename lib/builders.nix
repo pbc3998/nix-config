@@ -117,7 +117,8 @@ let
         modules = home.mkModules { inherit profile extraModules; };
 
         pkgs = import nixpkgs {
-          inherit overlays hostPlatform;
+          inherit overlays;
+          localSystem = { system = hostPlatform; };
           config.allowUnfree = true;
         };
       };
@@ -131,7 +132,7 @@ let
 
     default = home.mkBase-standalone {
       default = home.mkBase-standalone {
-        proifle = profileDefault;
+        profile = profileDefault;
         hostPlatform = hostPlatformPriority;
         raw = true;
       };
@@ -144,10 +145,10 @@ let
         profile = profiles;
       };
 
-      configs = (map ({hostPlatform, profile}: home.mkBase-standalone { inherit hostPlatform profile extraModules; }) configCombination) ++ [ nixos.default ];
+      configs = (map ({ hostPlatform, profile }: home.mkBase-standalone { inherit hostPlatform profile extraModules; }) configCombination);
     in
     if standalone then
-    (nixpkgs.lib.mergeAttrsList configs)
+      (nixpkgs.lib.mergeAttrsList (configs ++ [ { default = home.default; } ]))
     else
     {
       extraSpecialArgs = home.specialArgs;
