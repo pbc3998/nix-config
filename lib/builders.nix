@@ -1,159 +1,170 @@
 { inputs, overlays }:
 let
-  rootDir = inputs.self;
-  inherit (inputs) nixpkgs;
+  # ==================== Config ====================
 
-  hosts = [
-    "dp7530"
-  ];
-
-  desktops = [
-    "tty"
-    "plasma6"
-  ];
+  hosts = [ "dp7530" ];
+  hostDefault = "dp7530";
 
   hostPlatforms = [ "x86_64-linux" ];
   hostPlatformPriority = "x86_64-linux";
 
-  hostsDir = "${rootDir}/system/hosts";
-  desktopsDir-nixos = "${rootDir}/system/desktops";
-  desktopsDir = "${rootDir}/home/desktops";
+  profiles = [ "desktop" ];
+  profileDefault = "desktop";
 
-  settings = import "${rootDir}/settings";
+  dir = rec {
+    root = inputs.self;
 
-  libx = import "${rootDir}/lib"; # my lib extension
-  libxHome = import "${rootDir}/home/lib";
-  # libxNixos = import "${rootDir}/system/lib";
+    nixos = "${root}/system";
 
-  # ==================== Nixos ====================
+    home = "${root}/home";
+    hosts = "${nixos}/hosts";
 
-  nixosModules = [
-    "${rootDir}/system/base.nix"
-    # "${rootDir}/system/virtualisation.nix"
-  ];
-
-  nixosSpecialArgs = {
-    inherit inputs settings libx;
+    nixosProfiles = "${nixos}/profiles";
+    homeProfiles = "${home}/profiles";
   };
 
-  mkNixos-base =
-    { host
-    , desktop
-    , extraModules
-    ,
-    }:
-    let
-      mk = {
-        specialArgs = nixosSpecialArgs;
+  # ==================== Global ====================
 
-        modules = [
-          "${hostsDir}/${host}"
-          "${desktopsDir-nixos}/${desktop}"
-          ({ lib, ... }: {
-            # Create a hidden option to transfer Desktop environment information (DE/WM) from NixOS
-            # to the Home Manager module (when using embedded mode).
-            options._desktop = lib.mkOption {
-              type = lib.types.enum desktops;
-              description = "This helps Home Manager identify the target desktop";
+  inherit (inputs) nixpkgs;
+
+  settings = import "${dir.root}/settings";
+
+  libx = import "${dir.root}/lib";
+
+  # ==================== Nixos ====================
+  nixos = {
+    mkModules = { host, profile, extraModules }: [
+      "${dir.hosts}/${host}"
+      "${dir.nixosProfiles}/${profile}"
+      "${dir.nixos}/base.nix"
+      "${dir.nixos}/virtualisation.nix"
+    ] ++ extraModules;
+
+    specialArgs = {
+      inherit inputs settings libx;
+      # libxNixos = import "${dir.nixos}/lib";
+      systemDir = "${dir.nixos}";
+      modulesDir = "${dir.nixos}/modules";
+      programsDir = "${dir.nixos}/programs";
+      servicesDir = "${dir.nixos}/services";
+      desktopsDir = "${dir.nixos}/desktops";
+    };
+
+    mkBase = { host, profile, extraModules, name ? "${host}-${profile}" }: {
+      ${name} = nixpkgs.lib.nixosSystem {
+        inherit (nixos) specialArgs;
+        modules = (nixos.mkModules { inherit host profile extraModules; }) ++ [
+          ({lib, ...}:{
+            options._profile = lib.mkOption {
+              type = lib.types.enum profiles;
+              description = "This helps Home Manager identify the target profile";
             };
             config = {
-              _desktop = desktop;
+              _profile = profile;
+
               nixpkgs = {
                 inherit overlays;
                 config.allowUnfree = true;
               };
             };
           })
-        ]
-        ++ nixosModules
-        ++ extraModules;
+        ];
       };
+    };
+
+    default = nixos.mkBase {
+      host = hostDefault;
+      profile = profileDefault;
+      extraModules = [];
+      name = "default";
+    };
+
+    mkNixos = {extraModules ? [],}:
+    let
+      configCombination = nixpkgs.lib.cartesianProduct {
+        host = hosts;
+        profile = profiles;
+      };
+
+      configs = (map ({host, profile}: nixos.mkBase { inherit host profile extraModules; }) configCombination) ++ [ nixos.default ];
     in
-    { "${host}-${desktop}" = nixpkgs.lib.nixosSystem mk; };
+    nixpkgs.lib.mergeAttrsList configs;
+  };
 
   # ==================== Home-Manager ====================
 
-  homeModules = [
-    "${rootDir}/home/base.nix"
-  ];
+  home = {
+    mkModules = { profile, extraModules }: [
+      "${dir.homeProfiles}/${profile}"
+      "${dir.home}/base.nix"
+    ] ++ extraModules;
 
-  homeSpecialArgs = { inherit inputs settings libx libxHome; };
+    specialArgs = {
+      inherit inputs settings libx;
+      # libHome = import "${dir.home}/lib";
+      homeDir = dir.home;
+      modulesDir = "${dir.home}/modules";
+      programsDir = "${dir.home}/programs";
+      servicesDir = "${dir.home}/services";
+      desktopsDir = "${dir.home}/desktops";
+    };
 
-  mkHomeModules =
-    { desktop, extraModules }: homeModules ++ extraModules ++ [ "${desktopsDir}/${desktop}" ];
-
-  mkHome-base =
-    { desktop
-    , hostPlatform ? "x86_64-linux"
-    , extraModules
-    ,
-    }:
+    mkBase-standalone = {profile, hostPlatform, extraModules, raw ? false}:
     let
-      mk = {
-        extraSpecialArgs = homeSpecialArgs;
+      common = {
+        inherit (home) specialArgs;
+
+        modules = home.mkModules { inherit profile extraModules; };
+
         pkgs = import nixpkgs {
           inherit overlays hostPlatform;
           config.allowUnfree = true;
         };
-        modules = (mkHomeModules { inherit desktop extraModules; });
       };
     in
-    if (hostPlatform == hostPlatformPriority) then
-      { ${desktop} = inputs.home-manager.lib.homeManagerConfiguration mk; }
+    if raw then
+      inputs.home-manager.lib.homeManagerConfiguration common
+    else if (hostPlatform == hostPlatformPriority) then
+      { ${profile} = inputs.home-manager.lib.homeManagerConfiguration common; }
     else
-      { "${desktop}-${hostPlatform}" = inputs.home-manager.lib.homeManagerConfiguration mk; };
+      { "${profile}-${hostPlatform}" = inputs.home-manager.lib.homeManagerConfiguration common; };
+
+    default = home.mkBase-standalone {
+      default = home.mkBase-standalone {
+        proifle = profileDefault;
+        hostPlatform = hostPlatformPriority;
+        raw = true;
+      };
+    };
+
+    mkHome = {extraModules ? [], standalone ? true}:
+    let
+      configCombination = nixpkgs.lib.cartesianProduct {
+        hostPlatform = hostPlatforms;
+        profile = profiles;
+      };
+
+      configs = (map ({hostPlatform, profile}: home.mkBase-standalone { inherit hostPlatform profile extraModules; }) configCombination) ++ [ nixos.default ];
+    in
+    if standalone then
+    (nixpkgs.lib.mergeAttrsList configs)
+    else
+    {
+      extraSpecialArgs = home.specialArgs;
+
+      useGlobalPkgs = true;
+      useUserPackages = true;
+
+      users.${settings.identity.username} = {osConfig, ...}:{
+        imports = home.mkModules {
+          inherit extraModules;
+          profile = osConfig._profile;
+        };
+      };
+    };
+  };
 in
 {
-  mkNixos =
-    { extraModules ? [ ]
-    ,
-    }:
-    nixpkgs.lib.mergeAttrsList (
-      map
-        (
-          { host, desktop }:
-          mkNixos-base {
-            inherit
-              host
-              desktop
-              extraModules
-              ;
-          }
-        )
-        (
-          nixpkgs.lib.cartesianProduct {
-            desktop = desktops;
-            host = hosts;
-          }
-        )
-    );
-
-  mkHome =
-    { embed ? false
-    , # By default, it will not be embedded in NixoS.
-      extraModules ? [ ]
-    ,
-    }:
-    if embed then
-      {
-        extraSpecialArgs = homeSpecialArgs;
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        users.${settings.identity.username} = { osConfig, ... }: {
-          imports = (
-            mkHomeModules {
-              inherit extraModules;
-              desktop = osConfig._desktop;
-            }
-          );
-        };
-      }
-    else
-      nixpkgs.lib.mergeAttrsList (
-        nixpkgs.lib.concatMap
-          (
-            hostPlatform: map (desktop: mkHome-base { inherit hostPlatform desktop extraModules; }) desktops
-          )
-          hostPlatforms
-      );
+  inherit (nixos) mkNixos;
+  inherit (home) mkHome;
 }

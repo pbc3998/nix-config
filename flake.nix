@@ -108,7 +108,7 @@
                 # Embed Home Manager into Nixos
                 home-manager = libx.builders.mkHome {
                   extraModules = extraModulesHome;
-                  embed = true;
+                  standalone = false;
                 };
               }
             ]

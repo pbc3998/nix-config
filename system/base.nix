@@ -6,9 +6,7 @@
   i18n.defaultLocale = settings.locale;
 
   imports = [
-    ./programs
-    ./services
-    ./modules
+    ./modules/options
   ];
 
   environment.systemPackages = [ pkgs.mkcert ];
