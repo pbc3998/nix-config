@@ -59,7 +59,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/v0.7.0";
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim/nixos-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -97,6 +97,7 @@
           extraModulesHome = [
             inputs.plasma-manager.homeModules.plasma-manager
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
+            inputs.nixvim.homeModules.nixvim
           ];
 
           extraModulesNixos = [

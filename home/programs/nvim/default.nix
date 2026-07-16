@@ -1,7 +1,7 @@
-{ config, ... }:
+{inputs, ...}:
 {
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
+    nixpkgs.source = inputs.nixpkgs;
   };
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink ./config;
 }
