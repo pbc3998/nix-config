@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins.bufferline = {
-    enable = true;
+    enable = false;
     settings.options = {
       mode = "buffer";
       always_show_bufferline = false;
