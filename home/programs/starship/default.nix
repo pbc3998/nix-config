@@ -1,3 +1,4 @@
+{settings, ...}:
 {
   programs.starship = {
     enable = true;
@@ -6,8 +7,8 @@
       format = "$directory$git_branch$git_status$dotnet$line_break$character";
 
       character = {
-        success_symbol = "󱄅   ";
-        error_symbol = "[](bold #ff5555)   ";
+        success_symbol = "${settings.glyphs.nix.logo} ${settings.glyphs.prompt}";
+        error_symbol = "[${settings.glyphs.level.error}](bold #ff5555)  ${settings.glyphs.prompt}";
       };
     };
   };

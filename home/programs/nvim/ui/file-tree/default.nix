@@ -1,3 +1,4 @@
+{settings, ...}:
 {
   programs.nixvim.plugins.neo-tree = {
     enable = true;
@@ -39,13 +40,13 @@
       default_component_configs = {
         git_status = {
           symbols = {
-            added = " ";
-            conflict = " ";
-            deleted = " ";
-            ignored = " ";
-            modified = " ";
-            renamed = " ";
-            untracked = "󰰧 ";
+            added = settings.glyphs.git.diff.added;
+            conflict = settings.glyphs.git.diff.conflict;
+            deleted = settings.glyphs.git.diff.removed;
+            ignored = settings.glyphs.git.diff.ignored;
+            modified = settings.glyphs.git.diff.modified;
+            renamed = settings.glyphs.git.diff.renamed;
+            untracked = settings.glyphs.git.diff.untracked;
           };
         };
       };
