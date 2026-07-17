@@ -9,6 +9,8 @@
       autoEnableSources = true;
 
       settings = {
+        experimental = { ghost_text = true; };
+
         snippet.expand = ''
           function(args)
             require('luasnip').lsp_expand(args.body)
@@ -22,6 +24,7 @@
         window = {
           completion = {
             side_padding = 1;
+            scrollbar = true;
             border = settings.glyphs.border;
             winhighlight = "FloatBorder:CmpBorder,Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel";
           };
@@ -70,6 +73,30 @@
                 fallback()
               end
             end, { "i", "s" })
+          '';
+
+          "<Down>" = ''
+            function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+              elseif require("luasnip").expand_or_jumpable() then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+              else
+                fallback()
+              end
+            end
+          '';
+
+          "<Up>" = ''
+            function(fallback)
+              if cmp.visible() then
+                cmp.select_prev_item()
+              elseif require("luasnip").jumpable(-1) then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+              else
+                fallback()
+              end
+            end
           '';
         };
 
