@@ -1,4 +1,4 @@
-{settings, ...}:
+{ settings, ... }:
 {
   programs.nixvim.plugins = {
     lualine = {
