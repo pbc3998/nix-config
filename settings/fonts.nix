@@ -4,7 +4,7 @@
     size = 9;
   };
   code = {
-    name = "Fira Code";
+    name = "FiraCode Nerd Font Mono";
     size = 14;
   };
 }
