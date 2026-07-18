@@ -11,7 +11,7 @@ rec {
 
   dirs = {
     home = "/home/${identity.username}";
-    nixConfig = "${dirs.home}/nix-config";
+    nixConfig = "/workspaces/nix-config";
   };
 
   fonts = import ./fonts.nix;
