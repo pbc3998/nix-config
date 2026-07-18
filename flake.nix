@@ -64,6 +64,8 @@
     };
 
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
@@ -98,6 +100,7 @@
             inputs.plasma-manager.homeModules.plasma-manager
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
             inputs.nixvim.homeModules.nixvim
+            inputs.catppuccin.homeManagerModules.catppuccin
           ];
 
           extraModulesNixos = [
