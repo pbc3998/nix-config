@@ -2,7 +2,7 @@
   catppuccin = {
     enable = true;
     flavor = "mocha";
-    accent = "lavender";
+    accent = "blue";
 
     fcitx5.enable = false;
   };
