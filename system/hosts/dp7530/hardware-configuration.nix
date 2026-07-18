@@ -18,14 +18,14 @@
     {
       device = "/dev/disk/by-uuid/10f022b5-943f-47c3-8e2c-588bda93f425";
       fsType = "btrfs";
-      options = [ "subvol=@" "compress=zstd:3" "noatime" "ssd" "discard=async" "space_cache=v2" ];
+      options = [ "subvol=@" "compress=zstd:3" "noatime" "ssd" "discard=async" "space_cache=v2" "autodefrag" ];
     };
 
   fileSystems."/var/log" =
     {
       device = "/dev/disk/by-uuid/10f022b5-943f-47c3-8e2c-588bda93f425";
       fsType = "btrfs";
-      options = [ "subvol=@log" "compress=zstd:3" "noatime" "ssd" "discard=async" "space_cache=v2" ];
+      options = [ "subvol=@log" "compress=zstd:3" "noatime" "ssd" "discard=async" "space_cache=v2" "autodefrag" ];
     };
 
   fileSystems."/nix" =
@@ -39,7 +39,7 @@
     {
       device = "/dev/disk/by-uuid/609dd9b6-ae03-4968-9df9-42e40c3aff7c";
       fsType = "btrfs";
-      options = [ "subvol=@home" "compress=zstd:3" "noatime" "ssd" "discard=async" "space_cache=v2" ];
+      options = [ "subvol=@home" "compress=zstd:3" "noatime" "ssd" "discard=async" "space_cache=v2" "autodefrag" ];
     };
 
   fileSystems."/boot" =
@@ -49,12 +49,17 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 4096;
-    }
-  ];
+  # swapDevices = [
+  #   {
+  #     device = "/var/lib/swapfile";
+  #     size = 4096;
+  #   }
+  # ];
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
