@@ -1,0 +1,18 @@
+{
+  programs.nixvim.plugins.toggleterm = {
+    enable = true;
+    settings = {
+      open_mapping = "[[<C-t>]]";
+
+      direction = "float";
+
+      start_in_insert = true;
+
+      persist_size = true;
+      float_opts = {
+        border = "rounded";
+        winblend = 95;
+      };
+    };
+  };
+}
