@@ -14,10 +14,20 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>gg";
+        key = "<C-;>";
         action = "<cmd>LazyGit<CR>";
         options = {
           desc = "LazyGit";
+          silent = true;
+        };
+      }
+
+      {
+        mode = "t";
+        key = "<C-;>";
+        action = "<cmd>close<CR>";
+        options = {
+          desc = "close lazygit";
           silent = true;
         };
       }
