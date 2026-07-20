@@ -6,8 +6,12 @@
       surround = {};
       ai = {};
       comment = {};
-      indentscope = {};
+      indentscope = {
+        symbol = "┃";
+      };
       splitjoin = {};
+      hipatterns = {};
+      clue = {};
     };
   };
 }
