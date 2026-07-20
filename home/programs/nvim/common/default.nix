@@ -4,5 +4,6 @@
     ./diagnostic.nix
     ./options.nix
     ./keymaps.nix
+    ./editorconfig.nix
   ];
 }

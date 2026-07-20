@@ -7,7 +7,6 @@
       ai = {};
       comment = {};
       indentscope = {};
-      editorconfig = {};
       splitjoin = {};
     };
   };
