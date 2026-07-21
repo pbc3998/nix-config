@@ -1,7 +1,7 @@
 { pkgs, settings, config, ... }:
 {
   programs.firefox = {
-    enable = true;
+    enable = false;
     profiles.${settings.identity.username} = {
       id = 0;
       name = settings.identity.username;
