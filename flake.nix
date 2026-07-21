@@ -68,7 +68,7 @@
     catppuccin.url = "github:catppuccin/nix";
 
     wezterm-types = {
-      url = "https://github.com/DrKJeff16/wezterm-types";
+      url = "github:/DrKJeff16/wezterm-types";
       flake = false;
     };
   };

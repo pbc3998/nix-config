@@ -631,13 +631,17 @@
     "wezterm-types": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-eeie8LZkOctOFBekeMOdDQLzT1oPqnZoZKYEFXvC/D8=",
-        "type": "file",
-        "url": "https://github.com/DrKJeff16/wezterm-types"
+        "lastModified": 1784439863,
+        "narHash": "sha256-OU8McsHUm6pr868uAJQlr/ZOmWgSEcdQvuHT5m/pA6k=",
+        "owner": "DrKJeff16",
+        "repo": "wezterm-types",
+        "rev": "4d1caf27e61b4fb87ed855e2036a651a7db07b46",
+        "type": "github"
       },
       "original": {
-        "type": "file",
-        "url": "https://github.com/DrKJeff16/wezterm-types"
+        "owner": "DrKJeff16",
+        "repo": "wezterm-types",
+        "type": "github"
       }
     },
     "xwayland-satellite-stable": {
