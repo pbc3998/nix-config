@@ -29,7 +29,7 @@
             winhighlight = "FloatBorder:CmpBorder,Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel";
           };
 
-          settings.documentation = {
+          documentation = {
             border = settings.glyphs.border;
             winhighlight = "FloatBorder:CmpBorder,Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel";
           };
