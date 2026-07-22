@@ -3,6 +3,7 @@
     "${programsDir}/atuin"
     "${programsDir}/bat"
     "${programsDir}/direnv"
+    "${programsDir}/dotnet"
     "${programsDir}/eza"
     "${programsDir}/fastfetch"
     "${programsDir}/fd"
