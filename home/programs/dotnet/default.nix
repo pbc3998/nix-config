@@ -1,5 +1,5 @@
 { pkgs, ... }: {
   home.packages = [
-    pkgs.dotnet-sdk_10
+    pkgs.dotnetCorePackages.sdk_10_0-bin
   ];
 }
