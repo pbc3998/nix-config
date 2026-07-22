@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.nixvim.plugins.lsp.servers.pyright = {
     enable = true;
@@ -15,5 +14,5 @@
 
   programs.nixvim.plugins.conform-nvim.settings.formatters_by_ft = { py = [ "ruff_format" ]; };
 
-  programs.nixvim.plugins.treesitter.grammarPackages = [ pkgs.vimPlugins.nvim-treesitter.builtGrammars.python ];
+  programs.nixvim.plugins.treesitter.settings.ensure_installed = [ "python" ];
 }

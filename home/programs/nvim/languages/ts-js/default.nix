@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.nixvim.plugins.lsp.servers.ts_ls = {
     enable = true;
@@ -28,8 +27,5 @@
     typescriptreact = [ "prettier" ];
   };
 
-  programs.nixvim.plugins.treesitter.grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-    typescript
-    javascript
-  ];
+  programs.nixvim.plugins.treesitter.settings.ensure_installed = [ "javascript" "typescript" ];
 }

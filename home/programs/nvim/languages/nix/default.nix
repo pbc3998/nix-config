@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.nixvim.plugins.lsp.servers.nixd = {
     enable = true;
@@ -12,5 +11,5 @@
 
   programs.nixvim.plugins.conform-nvim.settings.formatters_by_ft = { nix = [ "alejandra" ]; };
 
-  programs.nixvim.plugins.treesitter.grammarPackages = [ pkgs.vimPlugins.nvim-treesitter.builtGrammars.nix ];
+  programs.nixvim.plugins.treesitter.settings.ensure_installed = [ "nix" ];
 }
