@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  programs.nixvim.plugins.roslyn = {
+  programs.nixvim.plugins.lsp.servers.roslyn_ls = {
     enable = true;
   };
 
