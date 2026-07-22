@@ -13,5 +13,6 @@
     ./languages
     ./terminal
     ./ui
+    ./direnv
   ];
 }
