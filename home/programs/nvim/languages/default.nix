@@ -5,5 +5,6 @@
     ./json
     ./lua
     ./ts-js
+    ./markdown
   ];
 }
