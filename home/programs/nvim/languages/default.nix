@@ -2,6 +2,7 @@
   imports = [
     ./core
 
+    ./bazel
     ./c-cpp
     ./cmake
     ./csharp
