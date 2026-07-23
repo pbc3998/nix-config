@@ -7,6 +7,7 @@
     ./cmake
     ./csharp
     ./fsharp
+    ./html
     ./java
     ./json
     ./lua
