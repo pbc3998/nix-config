@@ -14,6 +14,7 @@
     ./nix
     ./python
     ./rust
+    ./sh
     ./ts-js
     ./xml
     ./yml-yaml
