@@ -12,5 +12,6 @@
     ./nix
     ./python
     ./ts-js
+    ./xml
   ];
 }
