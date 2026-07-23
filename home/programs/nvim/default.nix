@@ -7,6 +7,7 @@
 
   imports = [
     ./common
+    ./diagnostic
     ./edit
     ./file
     ./git
